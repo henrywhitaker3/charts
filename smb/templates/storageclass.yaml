@@ -14,4 +14,5 @@ parameters:
   csi.storage.k8s.io/node-stage-secret-name: "{{ .Values.creds.secretName }}"
   csi.storage.k8s.io/node-stage-secret-namespace: "{{ .Values.creds.namespace }}"
 volumeBindingMode: "{{ .Values.volumeBindingMode }}"
-mountOptions: {{ .Values.mountOptions }}
+mountOptions:
+  {{- .Values.mountOptions | toYaml | nindent 2 }}
