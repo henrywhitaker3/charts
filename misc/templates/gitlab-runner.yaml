@@ -1,0 +1,7 @@
+apiVersion: onepassword.com/v1
+kind: OnePasswordItem
+metadata:
+  name: gitlab-runner-secret
+  namespace: gitlab-runner
+spec:
+  itemPath: "vaults/Infra/items/gitlab-runner-token"
