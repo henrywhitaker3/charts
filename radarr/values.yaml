@@ -10,7 +10,7 @@ generic:
     tag: latest
 
   service:
-    port: 8989
+    port: 7878
 
   ingress:
     enabled: true
