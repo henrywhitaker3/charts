@@ -90,7 +90,7 @@ pvc:
     - ReadWriteOnce
   mountPoint: /data
 
-config: []
+config: {}
 
 # The 1password path for secrets
 secrets: ""
