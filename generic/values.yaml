@@ -39,7 +39,7 @@ service:
   type: ClusterIP
   port: 80
 
-prodes:
+probes:
   initialDelaySeconds: 0
   periodSeconds: 10
   timeoutSeconds: 1
@@ -90,3 +90,5 @@ pvc:
   accessModes:
     - ReadWriteOnce
   mountPoint: /data
+
+config: []

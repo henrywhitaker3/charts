@@ -67,6 +67,9 @@ spec:
             - mountPath: {{ .Values.pvc.mountPath }}
               name: data
           {{- end }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "generic.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
