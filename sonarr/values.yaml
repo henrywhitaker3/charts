@@ -1,53 +1,54 @@
-nameOverride: sonarr
-fullnameOverride: sonarr
+generic:
+  nameOverride: sonarr
+  fullnameOverride: sonarr
 
-replicaCount: 1
+  replicaCount: 1
 
-image:
-  repository: linuxserver/sonarr
-  pullPolicy: Always
-  tag: latest
+  image:
+    repository: linuxserver/sonarr
+    pullPolicy: Always
+    tag: latest
 
-service:
-  port: 8989
+  service:
+    port: 8989
 
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/tls-acme: "true"
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/auth-url: https://auth.plexmox.com/api/verify
-    nginx.ingress.kubernetes.io/auth-signin: https://auth.plexmox.com
-  hosts:
-    - host: sonarr2.plexmox.com
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls:
-  - secretName: sonarr2-plexmox-com-tls
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/auth-url: https://auth.plexmox.com/api/verify
+      nginx.ingress.kubernetes.io/auth-signin: https://auth.plexmox.com
     hosts:
-      - sonarr2.plexmox.com
+      - host: sonarr2.plexmox.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+    - secretName: sonarr2-plexmox-com-tls
+      hosts:
+        - sonarr2.plexmox.com
 
-pvc:
-  enabled: true
-  mountPath: /config
-  storageClassName: longhorn
+  pvc:
+    enabled: true
+    mountPath: /config
+    storageClassName: longhorn
 
-depoymentStrategy: Recreate
+  depoymentStrategy: Recreate
 
-probes:
-  initialDelaySeconds: 30
+  probes:
+    initialDelaySeconds: 30
 
-config:
-  PUID: "1000"
-  GUID: "1000"
-  TZ:  Europe/London
+  config:
+    PUID: "1000"
+    GUID: "1000"
+    TZ:  Europe/London
 
-volumes:
-  - name: media
-    hostPath:
-      path: /plex
+  volumes:
+    - name: media
+      hostPath:
+        path: /plex
 
-volumeMounts:
-  - mountPath: /data
-    name: media
+  volumeMounts:
+    - mountPath: /data
+      name: media
