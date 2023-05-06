@@ -66,10 +66,12 @@ spec:
           volumeMounts:
             - mountPath: {{ .Values.pvc.mountPath }}
               name: data
+            {{ .Values.volumeMounts | toYaml | nindent 12 }}
           {{- end }}
           envFrom:
             - configMapRef:
                 name: {{ include "generic.fullname" . }}
+            # TODO: add conditional 1password secret ref
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
