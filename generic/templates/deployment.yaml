@@ -24,6 +24,7 @@ spec:
         - name: persistence
           persistentVolumeClaim:
             claimName: {{ include "generic.fullname" . }}
+        {{- .Values.volumes | toYaml | nindent 8 }}
       {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -66,7 +67,7 @@ spec:
           volumeMounts:
             - mountPath: {{ .Values.pvc.mountPath }}
               name: persistence
-            {{ .Values.volumeMounts | toYaml | nindent 12 }}
+            {{- .Values.volumeMounts | toYaml | nindent 12 }}
           {{- end }}
           envFrom:
             - configMapRef:
