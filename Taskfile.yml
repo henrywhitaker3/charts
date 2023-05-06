@@ -4,8 +4,14 @@ tasks:
   build:
     deps:
       - build:sonarr
+      - build:radarr
 
   build:sonarr:
     dir: ./sonarr/
+    cmds:
+      - helm dependency build
+
+  build:radarr:
+    dir: ./radarr/
     cmds:
       - helm dependency build
