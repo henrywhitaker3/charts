@@ -42,7 +42,8 @@ generic:
     storageClassName: longhorn
     size: 4Gi
 
-  deploymentStrategy: Recreate
+  deploymentStrategy:
+    type: Recreate
 
   probes:
     initialDelaySeconds: 30
