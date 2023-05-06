@@ -2,7 +2,7 @@ generic:
   nameOverride: overseerr
   fullnameOverride: overseerr
 
-  replicaCount: 0
+  replicaCount: 1
 
   image:
     repository: sctx/overseerr
