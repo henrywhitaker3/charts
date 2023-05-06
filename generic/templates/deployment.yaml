@@ -21,10 +21,14 @@ spec:
     spec:
       {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) }}
       volumes:
+        {{- if .Values.pvc.enabled }}
         - name: persistence
           persistentVolumeClaim:
             claimName: {{ include "generic.fullname" . }}
+        {{- end }}
+        {{- if gt (len .Values.volumes) 0 }}
         {{- .Values.volumes | toYaml | nindent 8 }}
+        {{- end }}
       {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -65,9 +69,13 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if or (.Values.pvc.enabled) (gt (len .Values.volumeMounts) 0) }}
           volumeMounts:
+            {{- if .Values.pvc.enabled }}
             - mountPath: {{ .Values.pvc.mountPath }}
               name: persistence
+            {{- end }}
+            {{- if gt (len .Values.volumeMounts) 0 }}
             {{- .Values.volumeMounts | toYaml | nindent 12 }}
+            {{- end }}
           {{- end }}
           envFrom:
             - configMapRef:

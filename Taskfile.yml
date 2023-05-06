@@ -10,14 +10,17 @@ tasks:
   build:sonarr:
     dir: ./sonarr/
     cmds:
+      - helm dependency update
       - helm dependency build
 
   build:radarr:
     dir: ./radarr/
     cmds:
+      - helm dependency update
       - helm dependency build
 
   build:overseer:
     dir: ./overseer/
     cmds:
+      - helm dependency update
       - helm dependency build

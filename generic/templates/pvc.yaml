@@ -8,7 +8,7 @@ metadata:
 spec:
   storageClassName: {{ .Values.pvc.storageClassName }}
   accessModes:
-    {{ .Values.pvc.accessModes | toYaml | nindent 4 }}
+    {{- .Values.pvc.accessModes | toYaml | nindent 4 }}
   resources:
     requests:
       storage: {{ .Values.pvc.size }}

@@ -5,4 +5,4 @@ metadata:
   labels:
     {{- include "generic.labels" . | nindent 4 }}
 data:
-  {{ .Values.config | toYaml | nindent 2 }}
+  {{- .Values.config | toYaml | nindent 2 }}
