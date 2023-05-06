@@ -18,7 +18,7 @@ spec:
       labels:
         {{- include "generic.selectorLabels" . | nindent 8 }}
     spec:
-      strategy: {{ .Values.dpeloymentStrategy }}
+      strategy: {{ .Values.deploymentStrategy }}
       {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) }}
       volumes:
         {{- if .Values.pvc.enabled }}

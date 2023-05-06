@@ -5,7 +5,7 @@ tasks:
     deps:
       - build:sonarr
       - build:radarr
-      - build:overseer
+      - build:overseerr
 
   build:sonarr:
     dir: ./sonarr/
@@ -19,8 +19,8 @@ tasks:
       - helm dependency update
       - helm dependency build
 
-  build:overseer:
-    dir: ./overseer/
+  build:overseerr:
+    dir: ./overseerr/
     cmds:
       - helm dependency update
       - helm dependency build

@@ -80,7 +80,7 @@ tolerations: []
 
 affinity: {}
 
-depoymentStrategy: RollingUpdate
+deploymentStrategy: RollingUpdate
 
 pvc:
   enabled: false
