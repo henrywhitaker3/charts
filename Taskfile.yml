@@ -2,5 +2,10 @@ version: '3'
 
 tasks:
   build:
+    deps:
+      - build:sonarr
+
+  build:sonarr:
+    dir: ./sonarr/
     cmds:
-      - cd sonarr helm dependency build
+      - helm dependency build
