@@ -1,11 +1,11 @@
 generic:
-  nameOverride: overseer
-  fullnameOverride: overseer
+  nameOverride: overseerr
+  fullnameOverride: overseerr
 
   replicaCount: 1
 
   image:
-    repository: sctx/overseer
+    repository: sctx/overseerr
     pullPolicy: Always
     tag: latest
 
@@ -20,14 +20,14 @@ generic:
       nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=1
       nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
     hosts:
-      - host: overseer.plexmox.com
+      - host: overseerr.plexmox.com
         paths:
           - path: /
             pathType: ImplementationSpecific
     tls:
-    - secretName: overseer-plexmox-com-tls
+    - secretName: overseerr-plexmox-com-tls
       hosts:
-        - overseer.plexmox.com
+        - overseerr.plexmox.com
 
   pvc:
     enabled: true

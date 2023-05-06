@@ -1,5 +1,5 @@
 apiVersion: v2
-name: overseer
+name: overseerr
 description: overseer manifests
 
 # A chart can be either an 'application' or a 'library' chart.
