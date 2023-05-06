@@ -12,5 +12,4 @@ spec:
   resources:
     requests:
       storage: {{ .Values.pvc.size }}
-  reclaimPolicy: {{ .Values.pvc.reclaimPolicy }}
 {{- end }}

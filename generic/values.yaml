@@ -85,7 +85,6 @@ depoymentStrategy: RollingUpdate
 pvc:
   enabled: false
   size: 1Gi
-  reclaimPolicy: Retain
   storageClassName: smb
   accessModes:
     - ReadWriteOnce
