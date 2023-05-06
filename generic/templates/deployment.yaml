@@ -19,9 +19,9 @@ spec:
       labels:
         {{- include "generic.selectorLabels" . | nindent 8 }}
     spec:
-      {{- if .Values.pvc.enabled }}
+      {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) }}
       volumes:
-        - name: data
+        - name: persistence
           persistentVolumeClaim:
             claimName: {{ include "generic.fullname" . }}
       {{- end }}
@@ -62,10 +62,10 @@ spec:
             failureThreshold: {{ .Values.probes.failureThreshold }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if .Values.pvc.enabled }}
+          {{- if or (.Values.pvc.enabled) (gt (len .Values.volumeMounts) 0) }}
           volumeMounts:
             - mountPath: {{ .Values.pvc.mountPath }}
-              name: data
+              name: persistence
             {{ .Values.volumeMounts | toYaml | nindent 12 }}
           {{- end }}
           envFrom:
