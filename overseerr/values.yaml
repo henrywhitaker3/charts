@@ -31,7 +31,7 @@ generic:
 
   pvc:
     enabled: true
-    mountPath: /config
+    mountPath: /app/config
     storageClassName: longhorn
     size: 1Gi
 
