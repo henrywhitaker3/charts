@@ -39,6 +39,13 @@ service:
   type: ClusterIP
   port: 80
 
+prodes:
+  initialDelaySeconds: 0
+  periodSeconds: 10
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 1
+
 ingress:
   enabled: false
   className: ""
