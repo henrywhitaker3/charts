@@ -6,7 +6,6 @@ metadata:
     {{- include "generic.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  strategy: {{ .Values.dpeloymentStrategy }}
   selector:
     matchLabels:
       {{- include "generic.selectorLabels" . | nindent 6 }}
@@ -19,6 +18,7 @@ spec:
       labels:
         {{- include "generic.selectorLabels" . | nindent 8 }}
     spec:
+      strategy: {{ .Values.dpeloymentStrategy }}
       {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) }}
       volumes:
         {{- if .Values.pvc.enabled }}
