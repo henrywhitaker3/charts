@@ -118,7 +118,7 @@ spec:
             - mountPath: /lib/modules
               name: modules
         - name: healthcheck
-          image: ubuntu:latest
+          image: ubuntu:jammy
           imagePullPolicy: Always
           command:
             - watch
