@@ -2,7 +2,7 @@ generic:
   nameOverride: monitorr
   fullnameOverride: monitorr
 
-  replicaCount: 0
+  replicaCount: 1
 
   image:
     repository: monitorr/monitorr
