@@ -60,18 +60,14 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- .Values.probes.spec | toYaml | nindent 12 }}
             initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.periodSeconds }}
             timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
             successThreshold: {{ .Values.probes.successThreshold }}
             failureThreshold: {{ .Values.probes.failureThreshold }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- .Values.probes.spec | toYaml | nindent 12 }}
             initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.periodSeconds }}
             timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
