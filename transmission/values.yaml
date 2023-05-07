@@ -20,20 +20,20 @@ generic:
       nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=1
       nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
     hosts:
-      - host: transmission.plexmox.com
+      - host: plexmox.com
         paths:
-          - path: /
+          - path: /transmission
             pathType: ImplementationSpecific
     tls:
-    - secretName: transmission-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - transmission.plexmox.com
+        - plexmox.com
 
   pvc:
-    enabled: false
+    enabled: true
     mountPath: /config
     storageClassName: longhorn
-    size: 1Gi
+    size: 128Mi
 
   deploymentStrategy:
     type: Recreate
@@ -47,6 +47,6 @@ generic:
     TZ:  Europe/London
 
   vpn:
-    enabled: false
+    enabled: true
     secret:
       path: vaults/Infra/items/transmission-tunnel
