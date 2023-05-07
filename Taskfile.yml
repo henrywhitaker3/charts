@@ -1,5 +1,7 @@
 version: '3'
 
+output: prefixed
+
 tasks:
   build:all:
     deps:
@@ -33,6 +35,7 @@ tasks:
 
   build:
     dir: ./{{ .DIR }}
+    prefix: 'build:{{ .DIR }}'
     cmds:
       - |
         sed -i 's/version: "[0-9]*\.[0-9]*\.[0-9]*"/version: "{{ .VERSION }}"/g' Chart.yaml
