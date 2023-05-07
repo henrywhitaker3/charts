@@ -1,0 +1,54 @@
+generic:
+  nameOverride: tautulli
+  fullnameOverride: tautulli
+
+  replicaCount: 1
+
+  image:
+    repository: linuxserver/tautulli
+    pullPolicy: Always
+    tag: latest
+
+  service:
+    port: 9696
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=1
+      nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Accept-Encoding "";
+        sub_filter
+        '</head>'
+        '<link rel="stylesheet" type="text/css" href="https://theme-park.dev/css/base/tautulli/nord.css">
+        </head>';
+        sub_filter_once on;
+    hosts:
+      - host: tautulli.plexmox.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+    - secretName: tautulli-plexmox-com-tls
+      hosts:
+        - tautulli.plexmox.com
+
+  pvc:
+    enabled: true
+    mountPath: /config
+    storageClassName: longhorn
+    size: 5Gi
+
+  deploymentStrategy:
+    type: Recreate
+
+  probes:
+    initialDelaySeconds: 30
+
+  config:
+    PUID: "1000"
+    GUID: "1000"
+    TZ:  Europe/London
