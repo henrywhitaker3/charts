@@ -18,14 +18,14 @@ generic:
       kubernetes.io/tls-acme: "true"
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-      - host: organizr.plexmox.com
+      - host: plexmox.com
         paths:
           - path: /
             pathType: ImplementationSpecific
     tls:
-    - secretName: organizr-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - organizr.plexmox.com
+        - plexmox.com
 
   pvc:
     enabled: true
