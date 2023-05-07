@@ -124,13 +124,10 @@ spec:
             - watch
             - -n
             - "60"
-            - curl -m 10 --retry 5 $HC_URL
+            - curl -m 10 --retry 5 ${{ .Values.vpn.healthcheck.key }}
           env:
-            - name: $HC_URL
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "generic.fullname" . }}-healthcheck
-                  key: {{ .Values.vpn.healthcheck.key }}
+            - secretRef:
+                name: {{ include "generic.fullname" . }}-healthcheck
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
