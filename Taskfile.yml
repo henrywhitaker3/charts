@@ -11,6 +11,7 @@ tasks:
       - build:tautulli
       - build:monitorr
       - build:speedtest
+      - build:transmission
 
   build:sonarr:
     dir: ./sonarr/
@@ -56,6 +57,12 @@ tasks:
 
   build:speedtest:
     dir: ./speedtest/
+    cmds:
+      - helm dependency update
+      - helm dependency build
+
+  build:transmission:
+    dir: ./transmission/
     cmds:
       - helm dependency update
       - helm dependency build
