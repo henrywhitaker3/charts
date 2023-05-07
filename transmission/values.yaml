@@ -71,3 +71,9 @@ generic:
     enabled: true
     secret:
       path: vaults/Infra/items/transmission-tunnel
+
+
+    healthcheck:
+      enabled: true
+      secret: vaults/Infra/items/transmission-healthcheck
+      key: hc_url
