@@ -102,19 +102,21 @@ spec:
           livenessProbe:
             exec:
               command:
-                - /bin/sh
+                - /bin/bash
                 - -c
                 - ping -W 1 -c 3 8.8.8.8 > /dev/null
             initialDelaySeconds: 10
-            periodSeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 5
           readinessProbe:
             exec:
               command:
-                - /bin/sh
+                - /bin/bash
                 - -c
                 - ping -W 1 -c 3 8.8.8.8 > /dev/null
             initialDelaySeconds: 10
-            periodSeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 5
           volumeMounts:
             {{- if .Values.vpn.secret.mount.enabled }}
             - name: wg-config
