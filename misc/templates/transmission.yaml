@@ -42,7 +42,7 @@ metadata:
   namespace: media
 spec:
   rules:
-  - host: transmission.plexmox.com
+  - host: plexmox.com
     http:
       paths:
       - backend:
@@ -50,9 +50,9 @@ spec:
             name: transmission
             port:
               number: 9091
-        path: /
+        path: /transmission
         pathType: ImplementationSpecific
   tls:
   - hosts:
-    - transmission.plexmox.com
-    secretName: transmission-plexmox-com-tls
+    - plexmox.com
+    secretName: plexmox-com-tls
