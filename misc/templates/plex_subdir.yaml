@@ -38,10 +38,12 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
     nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=4
-    nginx.ingress.kubernetes.io/rewrite-target: $1
+    # nginx.ingress.kubernetes.io/rewrite-target: $1
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
+
+      rewrite /plex(.*) $1 break;
 
       proxy_set_header X-Plex-Client-Identifier $http_x_plex_client_identifier;
       proxy_set_header X-Plex-Device $http_x_plex_device;
@@ -78,7 +80,7 @@ spec:
             name: plex
             port:
               number: 32400
-        path: /plex/(.*)
+        path: /plex/
         pathType: Prefix
   tls:
   - hosts:
