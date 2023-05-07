@@ -40,10 +40,10 @@ service:
   port: 80
 
 probes:
-  spec:
-    httpGet:
-      path: /
-      port: http
+  type: httpGet
+  options:
+    path: /
+    port: http
 
   initialDelaySeconds: 0
   periodSeconds: 10
