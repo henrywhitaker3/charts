@@ -46,6 +46,20 @@ generic:
     GUID: "1000"
     TZ:  Europe/London
 
+  volumes:
+    - name: downloads
+      hostPath:
+        path: /plex/downloads
+    - name: watch
+      hostPath:
+        path: /plex/watch
+
+  volumeMounts:
+    - mountPath: /downloads
+      name: downloads
+    - mountPath: /watch
+      name: watch
+
   vpn:
     enabled: true
     secret:
