@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex
+  namespace: media
+spec:
+  ports:
+  - name: http
+    port: 32400
+    protocol: TCP
+    targetPort: 32400
+  clusterIP: None
+  type: ClusterIP
+
+---
+
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: plex
+  namespace: media
+subsets:
+- addresses:
+  - ip: 10.0.0.160
+  ports:
+  - name: http
+    port: 32400
+    protocol: TCP
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
+    nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=1
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Accept-Encoding "";
+      sub_filter
+      '</head>'
+      '<link rel="stylesheet" type="text/css" href="https://theme-park.dev/css/base/plex/nord.css">
+      </head>';
+      sub_filter_once on;
+  name: plex
+  namespace: media
+spec:
+  rules:
+  - host: organizr.plexmox.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: plex
+            port:
+              number: 32400
+        path: /plex
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - organizr.plexmox.com
+    secretName: organizr-plexmox-com-tls
