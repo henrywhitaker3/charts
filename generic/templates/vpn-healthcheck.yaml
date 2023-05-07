@@ -4,5 +4,5 @@ kind: OnePasswordItem
 metadata:
   name: {{ include "generic.fullname" . }}-healthcheck
 spec:
-  itemPath: {{ .Values.vpn.healthcheck.path }}
+  itemPath: {{ .Values.vpn.healthcheck.secret }}
 {{- end }}
