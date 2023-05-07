@@ -2,7 +2,7 @@ generic:
   nameOverride: speedtest
   fullnameOverride: speedtest
 
-  replicaCount: 0
+  replicaCount: 1
 
   image:
     repository: henrywhitaker3/speedtest-tracker
@@ -31,7 +31,7 @@ generic:
 
   pvc:
     enabled: true
-    mountPath: /app
+    mountPath: /config
     storageClassName: longhorn
     size: 1Gi
 
