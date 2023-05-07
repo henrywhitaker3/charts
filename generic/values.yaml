@@ -128,3 +128,10 @@ vpn:
       enabled: true
 
       path: /config
+
+  healthcheck:
+    enabled: false
+
+    secret: ""
+
+    key: ""

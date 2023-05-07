@@ -117,6 +117,17 @@ spec:
             {{- end }}
             - mountPath: /lib/modules
               name: modules
+        - name: healthcheck
+          image: ubuntu:latest
+          imagePullPolicy: Always
+          command:
+            - watch
+            - -n
+            - "60"
+            - curl -m 10 --retry 5 ${{ .Values.vpn.healthcheck.key }}
+          env:
+            - secretRef:
+                name: {{ include "generic.fullname" . }}-healthcheck
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
