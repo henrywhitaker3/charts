@@ -99,6 +99,17 @@ spec:
           imagePullPolicy: {{ .Values.vpn.image.pullPolicy }}
           securityContext:
             {{- toYaml .Values.vpn.securityContext | nindent 12 }}
+          livenessProbe:
+            exec:
+              command:
+              - ping
+              - -W
+              - "1"
+              - -c
+              - "3"
+              - "8.8.8.8"
+            initialDelaySeconds: 5
+            periodSeconds: 5
           volumeMounts:
             {{- if .Values.vpn.secret.mount.enabled }}
             - name: wg-config
