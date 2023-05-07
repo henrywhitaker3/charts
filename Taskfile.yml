@@ -9,6 +9,7 @@ tasks:
       - build:organizr
       - build:prowlarr
       - build:tautulli
+      - build:monitorr
 
   build:sonarr:
     dir: ./sonarr/
@@ -42,6 +43,12 @@ tasks:
 
   build:tautulli:
     dir: ./tautulli/
+    cmds:
+      - helm dependency update
+      - helm dependency build
+
+  build:monitorr:
+    dir: ./monitorr/
     cmds:
       - helm dependency update
       - helm dependency build
