@@ -99,3 +99,26 @@ secrets: ""
 volumes: []
 
 volumeMounts: []
+
+vpn:
+  enabled: false
+
+  image:
+    repository: linuxserver/wireguard
+    pullPolicy: Always
+    tag: latest
+
+  securityContext:
+    capabilities: {add: ['NET_ADMIN']}
+    privileged: true
+
+  # 1password path to vpn config
+  secret:
+    enabled: true
+
+    path: ""
+
+    mount:
+      enabled: true
+
+      path: /config

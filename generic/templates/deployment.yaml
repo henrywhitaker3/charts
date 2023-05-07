@@ -20,7 +20,7 @@ spec:
       labels:
         {{- include "generic.selectorLabels" . | nindent 8 }}
     spec:
-      {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) }}
+      {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) (.Values.vpn.enabled) }}
       volumes:
         {{- if .Values.pvc.enabled }}
         - name: persistence
@@ -29,6 +29,17 @@ spec:
         {{- end }}
         {{- if gt (len .Values.volumes) 0 }}
         {{- .Values.volumes | toYaml | nindent 8 }}
+        {{- end }}
+        {{- if .Values.vpn.enabled }}
+        - name: modules
+          hostPath:
+            path: /lib/modules
+        {{- if .Values.vpn.secret.mount.enabled }}
+        - name: wg-config
+          secret:
+            secretName: {{ include "generic.fullname" . }}-wireguard
+            optional: false
+        {{- end }}
         {{- end }}
       {{- end }}
       {{- with .Values.imagePullSecrets }}
@@ -82,6 +93,21 @@ spec:
             - configMapRef:
                 name: {{ include "generic.fullname" . }}
             # TODO: add conditional 1password secret ref
+        {{- if .Values.vpn.enabled }}
+        - name: wireguard
+          image: "{{ .Values.vpn.image.repository }}:{{ .Values.vpn.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.vpn.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.vpn.securityContext | nindent 12 }}
+          volumeMounts:
+            {{- if .Values.vpn.secret.mount.enabled }}
+            - name: wg-config
+              mountPath: {{ .Values.vpn.secret.mount.path }}
+              readOnly: true
+            {{- end }}
+            - mountPath: /lib/modules
+              name: modules
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
