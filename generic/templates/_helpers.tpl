@@ -61,15 +61,23 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
-{{- define "generic.probes" -}}
-{{- if eq .Values.probes.type "httpGet" }}
+{{- define "generic.probes.httpGet" -}}
 httpGet:
   path: {{ .Values.probes.options.path }}
   port: {{ .Values.probes.options.port }}
-{{- end }}
-{{- if eq .Values.probes.type "tcpSocket" }}
+{{- end -}}
+
+{{- define "generic.probes.tcpSocket" -}}
 tcpSocket:
   port: {{ .Values.probes.options.port }}
+{{- end -}}
+
+{{- define "generic.probes" -}}
+{{- if eq .Values.probes.type "httpGet" -}}
+{{ include "generic.probes.httpGet" . }}
+{{- end }}
+{{- if eq .Values.probes.type "tcpSocket" -}}
+{{ include "generic.probes.tcpSocket" . }}
 {{- end }}
 initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
 periodSeconds: {{ .Values.probes.periodSeconds }}
