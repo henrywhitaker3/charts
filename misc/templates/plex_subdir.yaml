@@ -39,6 +39,8 @@ metadata:
     nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
     nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=4
     nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite /plex(.*) $1 break;
+
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
 
