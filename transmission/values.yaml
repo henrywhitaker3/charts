@@ -41,6 +41,8 @@ generic:
   probes:
     initialDelaySeconds: 30
     timeoutSeconds: 10
+    periodSeconds: 30
+    failureThreshold: 3
 
   config:
     PUID: "1000"
