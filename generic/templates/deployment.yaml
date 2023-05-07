@@ -102,17 +102,17 @@ spec:
           livenessProbe:
             exec:
               command:
-                - /bin/bash
+                - /bin/sh
                 - -c
-                - ping -W 1 -c 3 8.8.8.8
+                - ping -W 1 -c 3 8.8.8.8 > /dev/null
             initialDelaySeconds: 10
             periodSeconds: 5
           readinessProbe:
             exec:
               command:
-                - /bin/bash
+                - /bin/sh
                 - -c
-                - ping -W 1 -c 3 8.8.8.8
+                - ping -W 1 -c 3 8.8.8.8 > /dev/null
             initialDelaySeconds: 10
             periodSeconds: 5
           volumeMounts:
