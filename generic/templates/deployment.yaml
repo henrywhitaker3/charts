@@ -126,7 +126,7 @@ spec:
             - "60"
             - curl -m 10 --retry 5 $HC_URL
           env:
-            - name: HC_URL
+            - name: $HC_URL
               valueFrom:
                 secretKeyRef:
                   name: {{ include "generic.fullname" . }}-healthcheck
