@@ -1,68 +1,40 @@
 version: '3'
 
 tasks:
-  build:
+  build:all:
     deps:
-      - build:sonarr
-      - build:radarr
-      - build:overseerr
-      - build:organizr
-      - build:prowlarr
-      - build:tautulli
-      - build:monitorr
-      - build:speedtest
-      - build:transmission
+      - task: build
+        vars:
+          DIR: sonarr
+      - task: build
+        vars:
+          DIR: radarr
+      - task: build
+        vars:
+          DIR: overseerr
+      - task: build
+        vars:
+          DIR: organizr
+      - task: build
+        vars:
+          DIR: prowlarr
+      - task: build
+        vars:
+          DIR: tautulli
+      - task: build
+        vars:
+          DIR: monitorr
+      - task: build
+        vars:
+          DIR: speedtest
+      - task: build
+        vars:
+          DIR: transmission
 
-  build:sonarr:
-    dir: ./sonarr/
+  build:
+    dir: ./{{ .DIR }}
     cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:radarr:
-    dir: ./radarr/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:overseerr:
-    dir: ./overseerr/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:organizr:
-    dir: ./organizr/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:prowlarr:
-    dir: ./prowlarr/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:tautulli:
-    dir: ./tautulli/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:monitorr:
-    dir: ./monitorr/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:speedtest:
-    dir: ./speedtest/
-    cmds:
-      - helm dependency update
-      - helm dependency build
-
-  build:transmission:
-    dir: ./transmission/
-    cmds:
+      - |
+        sed -i 's/version: "[0-9]*\.[0-9]*\.[0-9]*"/version: "{{ .VERSION }}"/g' Chart.yaml
       - helm dependency update
       - helm dependency build
