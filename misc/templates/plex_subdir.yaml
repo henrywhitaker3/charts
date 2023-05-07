@@ -65,7 +65,7 @@ metadata:
   namespace: media
 spec:
   rules:
-  - host: organizr.plexmox.com
+  - host: plexmox.com
     http:
       paths:
       - backend:
@@ -77,5 +77,5 @@ spec:
         pathType: ImplementationSpecific
   tls:
   - hosts:
-    - organizr.plexmox.com
-    secretName: organizr-plexmox-com-tls
+    - plexmox.com
+    secretName: plexmox-com-tls
