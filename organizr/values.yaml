@@ -42,6 +42,7 @@ generic:
 
   probes:
     initialDelaySeconds: 30
+    timeoutSeconds: 3
 
   config:
     fpm: "true"
