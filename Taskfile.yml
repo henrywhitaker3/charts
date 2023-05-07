@@ -10,6 +10,7 @@ tasks:
       - build:prowlarr
       - build:tautulli
       - build:monitorr
+      - build:speedtest
 
   build:sonarr:
     dir: ./sonarr/
@@ -49,6 +50,12 @@ tasks:
 
   build:monitorr:
     dir: ./monitorr/
+    cmds:
+      - helm dependency update
+      - helm dependency build
+
+  build:speedtest:
+    dir: ./speedtest/
     cmds:
       - helm dependency update
       - helm dependency build
