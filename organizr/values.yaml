@@ -17,8 +17,6 @@ generic:
     annotations:
       kubernetes.io/tls-acme: "true"
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=1
-      nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
     hosts:
       - host: organizr.plexmox.com
         paths:
