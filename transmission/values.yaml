@@ -41,7 +41,7 @@ generic:
   probes:
     spec:
       tcpSocket:
-      port: http
+        port: http
 
     initialDelaySeconds: 30
     timeoutSeconds: 10
