@@ -49,7 +49,7 @@ generic:
   volumes:
     - name: downloads
       hostPath:
-        path: /plex/downloads
+        path: /plex/temp
     - name: watch
       hostPath:
         path: /plex/watch
