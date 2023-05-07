@@ -78,7 +78,7 @@ spec:
             name: plex
             port:
               number: 32400
-        path: /plex/(.*)
+        path: /plex(.*)
         pathType: Prefix
   tls:
   - hosts:
