@@ -27,14 +27,14 @@ generic:
         </head>';
         sub_filter_once on;
     hosts:
-      - host: sonarr2.plexmox.com
+      - host: plexmox.com
         paths:
-          - path: /
+          - path: /sonarr
             pathType: ImplementationSpecific
     tls:
-    - secretName: sonarr2-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - sonarr2.plexmox.com
+        - plexmox.com
 
   pvc:
     enabled: true

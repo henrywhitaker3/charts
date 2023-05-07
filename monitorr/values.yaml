@@ -20,14 +20,14 @@ generic:
       nginx.ingress.kubernetes.io/auth-url: https://plexmox.com/api/v2/auth?group=1
       nginx.ingress.kubernetes.io/auth-signin: https://plexmox.com
     hosts:
-      - host: monitorr.plexmox.com
+      - host: plexmox.com
         paths:
-          - path: /
+          - path: /monitorr
             pathType: ImplementationSpecific
     tls:
-    - secretName: monitorr-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - monitorr.plexmox.com
+        - plexmox.com
 
   pvc:
     enabled: true

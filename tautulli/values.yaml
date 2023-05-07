@@ -27,14 +27,14 @@ generic:
         </head>';
         sub_filter_once on;
     hosts:
-      - host: tautulli.plexmox.com
+      - host: plexmox.com
         paths:
-          - path: /
+          - path: /tautulli
             pathType: ImplementationSpecific
     tls:
-    - secretName: tautulli-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - tautulli.plexmox.com
+        - plexmox.com
 
   pvc:
     enabled: true

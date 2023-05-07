@@ -27,14 +27,14 @@ generic:
         </head>';
         sub_filter_once on;
     hosts:
-      - host: prowlarr.plexmox.com
+      - host: plexmox.com
         paths:
-          - path: /
+          - path: /prowlarr
             pathType: ImplementationSpecific
     tls:
-    - secretName: prowlarr-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - prowlarr.plexmox.com
+        - plexmox.com
 
   pvc:
     enabled: true

@@ -27,14 +27,14 @@ generic:
         </head>';
         sub_filter_once on;
     hosts:
-      - host: radarr2.plexmox.com
+      - host: plexmox.com
         paths:
-          - path: /
+          - path: /radarr
             pathType: ImplementationSpecific
     tls:
-    - secretName: radarr2-plexmox-com-tls
+    - secretName: plexmox-com-tls
       hosts:
-        - radarr2.plexmox.com
+        - plexmox.com
 
   pvc:
     enabled: true
