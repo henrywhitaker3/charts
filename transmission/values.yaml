@@ -40,6 +40,7 @@ generic:
 
   probes:
     initialDelaySeconds: 30
+    timeoutSeconds: 5
 
   config:
     PUID: "1000"
