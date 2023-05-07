@@ -41,6 +41,7 @@ service:
 
 probes:
   type: httpGet
+
   options:
     path: /
     port: http

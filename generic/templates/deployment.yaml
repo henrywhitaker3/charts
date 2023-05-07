@@ -60,21 +60,9 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            {{ .Values.probes.type}}:
-              {{- .Values.probes.options | toYaml | nindent 14 }}
-            initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
-            periodSeconds: {{ .Values.probes.periodSeconds }}
-            timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
-            successThreshold: {{ .Values.probes.successThreshold }}
-            failureThreshold: {{ .Values.probes.failureThreshold }}
+            {{- include "generic.probes" . | nindent 12 }}
           readinessProbe:
-            {{ .Values.probes.type}}:
-              {{- .Values.probes.options | toYaml | nindent 14 }}
-            initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
-            periodSeconds: {{ .Values.probes.periodSeconds }}
-            timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
-            successThreshold: {{ .Values.probes.successThreshold }}
-            failureThreshold: {{ .Values.probes.failureThreshold }}
+            {{- include "generic.probes" . | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if or (.Values.pvc.enabled) (gt (len .Values.volumeMounts) 0) }}

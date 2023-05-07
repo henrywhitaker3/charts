@@ -60,3 +60,20 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "generic.probes" -}}
+{{- if eq .Values.probes.type "httpGet" }}
+httpGet:
+  path: {{ .Values.probes.options.path }}
+  port: {{ .Values.probes.options.port }}
+{{- end }}
+{{- if eq .Values.probes.type "tcpSocket" }}
+tcpSocket:
+  port: {{ .Values.probes.options.port }}
+{{- end }}
+initialDelaySeconds: {{ .Values.probes.initialDelaySeconds }}
+periodSeconds: {{ .Values.probes.periodSeconds }}
+timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
+successThreshold: {{ .Values.probes.successThreshold }}
+failureThreshold: {{ .Values.probes.failureThreshold }}
+{{- end }}
