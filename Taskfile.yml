@@ -6,6 +6,8 @@ tasks:
       - build:sonarr
       - build:radarr
       - build:overseerr
+      - build:organizr
+      - build:prowlarr
 
   build:sonarr:
     dir: ./sonarr/
@@ -21,6 +23,18 @@ tasks:
 
   build:overseerr:
     dir: ./overseerr/
+    cmds:
+      - helm dependency update
+      - helm dependency build
+
+  build:organizr:
+    dir: ./organizr/
+    cmds:
+      - helm dependency update
+      - helm dependency build
+
+  build:prowlarr:
+    dir: ./prowlarr/
     cmds:
       - helm dependency update
       - helm dependency build
