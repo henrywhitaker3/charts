@@ -121,10 +121,9 @@ spec:
           image: ubuntu:jammy
           imagePullPolicy: Always
           command:
-            - watch
-            - -n
-            - "60"
-            - curl -m 10 --retry 5 $HC_URL
+            - /bin/bash
+            - -c
+            - watch -n 60 "curl -m 10 --retry 5 $HC_URL"
           env:
             - name: HC_URL
               valueFrom:
