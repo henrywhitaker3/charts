@@ -31,4 +31,4 @@ authelia:
     session:
       redis:
         enabled: true
-        host: authelia-redis.authelia.svc.cluster.local
+        host: redis.databases.svc.cluster.local

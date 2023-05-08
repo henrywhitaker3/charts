@@ -38,6 +38,7 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  portName: http
 
 probes:
   type: httpGet

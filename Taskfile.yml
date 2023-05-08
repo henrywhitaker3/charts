@@ -35,6 +35,9 @@ tasks:
       - task: build:std
         vars:
           DIR: authelia
+      - task: build:generic
+        vars:
+          DIR: redis
 
   build:generic:
     dir: ./{{ .DIR }}
