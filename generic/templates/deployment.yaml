@@ -78,7 +78,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "generic.fullname" . }}
-            # TODO: add conditional 1password secret ref
+            {{- if not eq .Values.secrets "" }}
+            - secretRef:
+                name: {{ include "generic.fullname" . }}
+            {{- end }}
         {{- if .Values.vpn.enabled }}
         - name: wireguard
           image: "{{ .Values.vpn.image.repository }}:{{ .Values.vpn.image.tag | default .Chart.AppVersion }}"
