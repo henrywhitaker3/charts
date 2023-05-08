@@ -4,9 +4,6 @@ authelia:
   domain: plexmox.com
 
   pod:
-    kind: Deployment
-    replicas: 3
-
     extraVolumeMounts:
       - mountPath: /users
         name: users
@@ -30,7 +27,7 @@ authelia:
       kubernetes.io/tls-acme: "true"
       cert-manager.io/cluster-issuer: letsencrypt-prod
 
-    subdomain: authelia
+    subdomain: auth
 
   secret:
     existingSecret: "authelia-secrets"
