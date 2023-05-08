@@ -33,6 +33,9 @@ authelia:
     existingSecret: "authelia-secrets"
 
   configMap:
+    server:
+      path: authelia
+
     default_redirection_url: https://plexmox.com
     authentication_backend:
       ldap:
