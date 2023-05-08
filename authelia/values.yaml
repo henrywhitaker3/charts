@@ -1,3 +1,5 @@
+secrets: vaults/Infra/items/authelia
+
 authelia:
   domain: plexmox.com
 
@@ -13,12 +15,16 @@ authelia:
 
     subdomain: authelia
 
+  secret:
+    existingSecret: "authelia-secrets"
+
   configMap:
     authentication_backend:
       ldap:
         enabled: false
       file:
         enabled: true
+        path: /secrets/users_database.yml
 
     access_control:
       default_policy: deny
@@ -32,3 +38,21 @@ authelia:
       redis:
         enabled: true
         host: redis.databases.svc.cluster.local
+
+    storage:
+      postgres:
+        enabled: false
+
+      mysql:
+        enabled: true
+        host: mariadb.databases.svc.cluster.local
+        port: 3306
+        username: authelia
+        database: authelia
+
+    notifier:
+      filesystem:
+        enabled: true
+
+      smtp:
+        enabled: false
