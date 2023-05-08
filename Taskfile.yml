@@ -38,6 +38,9 @@ tasks:
       - task: build:generic
         vars:
           DIR: redis
+      - task: build:generic
+        vars:
+          DIR: mariadb
 
   build:generic:
     dir: ./{{ .DIR }}
