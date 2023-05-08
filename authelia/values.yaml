@@ -7,6 +7,19 @@ authelia:
     kind: Deployment
     replicas: 3
 
+    extraVolumeMounts:
+      - mountPath: /users
+        name: users
+        readOnly: true
+
+    extraVolumes:
+      - name: users
+        secret:
+          items:
+            - key: users_database.yml
+              path: users_database.yml
+          secretName: authelia-secrets
+
   rbac:
     enabled: true
 
@@ -28,7 +41,7 @@ authelia:
         enabled: false
       file:
         enabled: true
-        path: /secrets/users_database.yml
+        path: /users/users_database.yml
 
     access_control:
       default_policy: deny
