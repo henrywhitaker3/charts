@@ -23,7 +23,7 @@ generic:
 
   pvc:
     enabled: true
-    mountPath: /data
+    mountPath: /var/lib/mysql
     storageClassName: longhorn
     size: 10Gi
 
