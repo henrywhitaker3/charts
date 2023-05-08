@@ -78,7 +78,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "generic.fullname" . }}
-            {{- if not eq .Values.secrets "" }}
+            {{- if ne (.Values.secrets) ("") }}
             - secretRef:
                 name: {{ include "generic.fullname" . }}
             {{- end }}
