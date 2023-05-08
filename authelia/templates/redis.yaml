@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "authelia.fullname" . }}-redis
+  labels:
+    {{- include "authelia.labels" . | nindent 4 }}
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "authelia.selectorLabels" . | nindent 6 }}
+      app: redis
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "authelia.selectorLabels" . | nindent 8 }}
+        app: redis
+    spec:
+      {{- if or (.Values.pvc.enabled) (gt (len .Values.volumes) 0) (.Values.vpn.enabled) }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: authelia
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: redis
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: redis:latest
+          imagePullPolicy: Always
+          ports:
+            - name: redis
+              containerPort: 6379
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: redis
+          readinessProbe:
+            tcpSocket:
+              port: redis
+          resources: {}

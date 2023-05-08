@@ -5,39 +5,49 @@ output: prefixed
 tasks:
   build:all:
     deps:
-      - task: build
+      - task: build:generic
         vars:
           DIR: sonarr
-      - task: build
+      - task: build:generic
         vars:
           DIR: radarr
-      - task: build
+      - task: build:generic
         vars:
           DIR: overseerr
-      - task: build
+      - task: build:generic
         vars:
           DIR: organizr
-      - task: build
+      - task: build:generic
         vars:
           DIR: prowlarr
-      - task: build
+      - task: build:generic
         vars:
           DIR: tautulli
-      - task: build
+      - task: build:generic
         vars:
           DIR: monitorr
-      - task: build
+      - task: build:generic
         vars:
           DIR: speedtest
-      - task: build
+      - task: build:generic
         vars:
           DIR: transmission
+      - task: build:std
+        vars:
+          DIR: authelia
 
-  build:
+  build:generic:
     dir: ./{{ .DIR }}
-    prefix: 'build:{{ .DIR }}'
+    prefix: build:generic:{{ .DIR }}
     cmds:
       - |
         sed -i 's/version: "[0-9]*\.[0-9]*\.[0-9]*"/version: "{{ .VERSION }}"/g' Chart.yaml
+      - helm dependency update
+      - helm dependency build
+
+  build:std:
+    dir: ./{{ .DIR }}
+    prefix: build:std:{{ .DIR }}
+    cmds:
       - helm dependency update
       - helm dependency build
