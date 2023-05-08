@@ -3,6 +3,10 @@ secrets: vaults/Infra/items/authelia
 authelia:
   domain: plexmox.com
 
+  pod:
+    kind: Deployment
+    replicas: 3
+
   rbac:
     enabled: true
 
