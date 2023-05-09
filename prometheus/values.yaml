@@ -25,6 +25,30 @@ kube-prometheus-stack:
           hosts:
             - grafana.plexmox.com
 
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: default
+          orgId: 1
+          folder: Custom
+          type: file
+          disableDeletion: true
+          editable: false
+          options:
+            path: /var/lib/grafana/dashboards/default
+
+    dashboards:
+      default:
+        haproxy:
+          gnetID: 2428
+          revision: 7
+          datasource: Prometheus
+        node_exporter:
+          gnetID: 1860
+          revision: 31
+          datasource: Prometheus
+
   prometheus:
     ingress:
       enabled: true
