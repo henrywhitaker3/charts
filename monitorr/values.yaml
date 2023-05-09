@@ -39,7 +39,10 @@ generic:
     type: Recreate
 
   probes:
-    initialDelaySeconds: 10
+    type: tcpSocket
+    options:
+      port: http
+    initialDelaySeconds: 20
 
   config:
     TZ:  Europe/London
