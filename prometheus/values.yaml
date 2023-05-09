@@ -45,3 +45,8 @@ prometheus:
         - secretName: prometheus-plexmox-com-tls
           hosts:
             - prometheus.plexmox.com
+
+    persistentVolume:
+      enabled: true
+      size: 10Gi
+      storageClass: longhorn
