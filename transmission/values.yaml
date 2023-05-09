@@ -43,7 +43,7 @@ generic:
     options:
       port: http
 
-    initialDelaySeconds: 30
+    initialDelaySeconds: 15
     timeoutSeconds: 10
     periodSeconds: 30
     failureThreshold: 3
