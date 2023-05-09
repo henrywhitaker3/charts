@@ -1,3 +1,6 @@
+secrets:
+  grafana: vaults/Infra/items/grafana-creds
+
 kube-prometheus-stack:
   alertmanager:
     enabled: false
@@ -10,7 +13,6 @@ kube-prometheus-stack:
 
     admin:
       existingSecret: grafana-creds
-      secretPath: vaults/Infra/items/grafana-creds
 
     ingress:
       enabled: true
