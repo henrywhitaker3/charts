@@ -8,6 +8,10 @@ kube-prometheus-stack:
   grafana:
     enabled: true
 
+    admin:
+      existingSecret: grafana-creds
+      secretPath: vaults/Infra/items/grafana-creds
+
     ingress:
       enabled: true
 
@@ -41,11 +45,11 @@ kube-prometheus-stack:
     dashboards:
       default:
         haproxy:
-          gnetID: 2428
+          gnetId: 2428
           revision: 7
           datasource: Prometheus
         node_exporter:
-          gnetID: 1860
+          gnetId: 1860
           revision: 31
           datasource: Prometheus
 
