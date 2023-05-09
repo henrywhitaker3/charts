@@ -1,37 +1,31 @@
-prometheus:
+kube-prometheus-stack:
   alertmanager:
     enabled: false
 
-  prometheus-node-exporter:
+  nodeExporter:
     enabled: false
 
-  extraScrapeConfigs: |
-    - job_name: 'haproxy'
-      static_configs:
-        - targets: ['jump.lab:9101', 'jump-k8s.lab:9101']
+  grafana:
+    enabled: true
 
-    - job_name: 'node_exporter'
-      static_configs:
-        - targets:
-          - 'pihole.lab:9100'
-          - 'docker.lab:9100'
-          - 'lb-1.lab:9100'
-          - 'lb-2.lab:9100'
-          - 'vpn-1.lab:9100'
-          - 'vpn-2.lab:9100'
-          - 'jump.lab:9100'
-          - 'jump-k8s.lab:9100'
-          - 'bedroom.lab:9100'
-          - 'proxmox-1.lab:9100'
-          - 'proxmox-2.lab:9100'
-          - 'k8s-control-1.lab:9100'
-          - 'k8s-control-2.lab:9100'
-          - 'k8s-control-3.lab:9100'
-          - 'k8s-worker-1.lab:9100'
-          - 'k8s-worker-2.lab:9100'
-          - 'k8s-worker-3.lab:9100'
+    ingress:
+      enabled: true
 
-  server:
+      annotations:
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        nginx.ingress.kubernetes.io/auth-url: https://auth.plexmox.com/api/verify
+        nginx.ingress.kubernetes.io/auth-signin: https://auth.plexmox.com
+
+      hosts:
+        - grafana.plexmox.com
+
+      tls:
+        - secretName: grafana-plexmox-com-tls
+          hosts:
+            - grafana.plexmox.com
+
+  prometheus:
     ingress:
       enabled: true
 
@@ -53,3 +47,39 @@ prometheus:
       enabled: true
       size: 10Gi
       storageClass: longhorn
+
+    prometheusSpec:
+      additionalScrapeConfigs:
+        - job_name: 'haproxy'
+          static_configs:
+            - targets: ['jump.lab:9101', 'jump-k8s.lab:9101']
+
+        - job_name: 'node_exporter'
+          static_configs:
+            - targets:
+              - 'pihole.lab:9100'
+              - 'docker.lab:9100'
+              - 'lb-1.lab:9100'
+              - 'lb-2.lab:9100'
+              - 'vpn-1.lab:9100'
+              - 'vpn-2.lab:9100'
+              - 'jump.lab:9100'
+              - 'jump-k8s.lab:9100'
+              - 'bedroom.lab:9100'
+              - 'proxmox-1.lab:9100'
+              - 'proxmox-2.lab:9100'
+              - 'k8s-control-1.lab:9100'
+              - 'k8s-control-2.lab:9100'
+              - 'k8s-control-3.lab:9100'
+              - 'k8s-worker-1.lab:9100'
+              - 'k8s-worker-2.lab:9100'
+              - 'k8s-worker-3.lab:9100'
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: longhorn
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi
+          selector: {}
