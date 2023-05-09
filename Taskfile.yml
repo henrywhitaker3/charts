@@ -41,6 +41,9 @@ tasks:
       - task: build:generic
         vars:
           DIR: mariadb
+      - task: build:std
+        vars:
+          DIR: prometheus
 
   build:generic:
     dir: ./{{ .DIR }}
