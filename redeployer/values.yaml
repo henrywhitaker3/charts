@@ -28,8 +28,6 @@ role:
     - extensions
   resources:
     - deployments
-    - pods
-    - nodes
   resourceNames:
     - sonarr
     - radarr
@@ -42,9 +40,7 @@ role:
     - plex
   verbs:
     - get
-    - list
     - patch
-    - watch
 
 jobs:
   - name: sonarr
@@ -74,26 +70,3 @@ jobs:
   - name: plex
     command: kubectl -n media rollout restart deployment plex
     schedule: "0 4 * * *"
-  - name: plex-rebalance
-    schedule: "*/5 * * * *"
-    command: |
-      #!/bin/bash
-
-      quicksync_available=$(kubectl get node k8s-control-3 | tail -n 1 | tr -s ' ' | cut -d ' ' -f 2)
-      current_node=$(kubectl -n media get pods -l app.kubernetes.io/name=plex -o=wide | tail -n 1 | tr -s ' ' | cut -d' ' -f7)
-
-      if [ $current_node == "k8s-control-3" ]; then
-              echo Plex running on quicksync node
-              exit 0
-      else
-              echo Plex not running on quicksync node
-      fi
-
-      if [ $quicksync_available == "Ready" ]; then
-              echo Quicksync node available
-              kubectl -n media rollout restart deployment plex
-              exit 0
-      else
-              echo Quicksync node unavailable
-              exit 1
-      fi
