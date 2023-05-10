@@ -120,7 +120,7 @@ generic:
 
   volumeMounts:
     - mountPath: /plex
-      name: plex
+      name: media
     - mountPath: /dev/dri
       name: quicksync
 
