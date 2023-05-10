@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "plex.fullname" . }}-lb
+  labels:
+    {{- include "plex.labels" . | nindent 4 }}
+spec:
+  type: LoadBalancer
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.portName }}
+      protocol: TCP
+      name: {{ .Values.service.portName }}
+    {{- if (gt (len .Values.service.additionalPorts) 0) }}
+    {{ .Values.service.additionalPorts | toYaml | nindent 4 }}
+    {{- end }}
+  selector:
+    {{- include "plex.selectorLabels" . | nindent 4 }}
