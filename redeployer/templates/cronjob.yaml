@@ -33,6 +33,6 @@ spec:
               command:
                 - /bin/bash
                 - -c
-                - {{ $job.command }}
+                - {{ $job.command | quote }}
 ---
 {{- end }}
