@@ -37,7 +37,7 @@ metadata:
       if ($http_referer ~* /plex) {
           rewrite ^/web/(.*) /plex/web/$1? redirect;
       }
-  name: plex
+  name: plex-subdir
   namespace: media
 spec:
   rules:
