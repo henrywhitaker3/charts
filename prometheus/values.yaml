@@ -141,7 +141,6 @@ kube-prometheus-stack:
           static_configs:
             - targets:
               - 'pihole.lab:9100'
-              - 'docker.lab:9100'
               - 'lb-1.lab:9100'
               - 'lb-2.lab:9100'
               - 'vpn-1.lab:9100'
@@ -154,6 +153,7 @@ kube-prometheus-stack:
               - 'k8s-control-1.lab:9100'
               - 'k8s-control-2.lab:9100'
               - 'k8s-control-3.lab:9100'
+              - 'k8s-control-4.lab:9100'
               - 'k8s-worker-1.lab:9100'
               - 'k8s-worker-2.lab:9100'
               - 'k8s-worker-3.lab:9100'
