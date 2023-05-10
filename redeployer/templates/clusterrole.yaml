@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "redeployer.labels" . | nindent 4 }}
 rules:
-  - apiGroups: ''
+  - apiGroups: ['']
     resources:
       - nodes
     resourceNames: []
