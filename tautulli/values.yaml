@@ -2,7 +2,7 @@ generic:
   nameOverride: tautulli
   fullnameOverride: tautulli
 
-  replicaCount: 0
+  replicaCount: 1
 
   image:
     repository: linuxserver/tautulli
