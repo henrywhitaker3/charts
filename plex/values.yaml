@@ -119,6 +119,8 @@ generic:
         path: /dev/dri
 
   volumeMounts:
+    - mountPath: /plex
+      name: plex
     - mountPath: /dev/dri
       name: quicksync
 
