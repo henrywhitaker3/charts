@@ -11,5 +11,8 @@ spec:
       targetPort: {{ .Values.service.portName }}
       protocol: TCP
       name: {{ .Values.service.portName }}
+    {{- if (gt (len .Values.service.additionalPorts) 0) }}
+    {{ .Values.service.additionalPorts | toYaml | nindent 4 }}
+    {{- end }}
   selector:
     {{- include "generic.selectorLabels" . | nindent 4 }}

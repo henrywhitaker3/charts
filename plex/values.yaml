@@ -1,0 +1,123 @@
+generic:
+  nameOverride: plex
+  fullnameOverride: plex
+
+  replicaCount: 1
+
+  image:
+    repository: linuxserver/plex
+    pullPolicy: Always
+    tag: latest
+
+  service:
+    port: 32400
+    additionalPorts:
+      - name: dlna
+        containerPort: 1900
+        protocol: UDP
+      - name: bonjour
+        containerPort: 5353
+        protocol: UDP
+      - name: roku
+        containerPort: 8324
+        protocol: TCP
+      - name: gdm1
+        containerPort: 32410
+        protocol: UDP
+      - name: gdm2
+        containerPort: 32412
+        protocol: UDP
+      - name: gdm3
+        containerPort: 32413
+        protocol: UDP
+      - name: gdm4
+        containerPort: 32414
+        protocol: UDP
+      - name: dlnat
+        containerPort: 32469
+        protocol: TCP
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hosts:
+      - host: plex.plexmox.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+    - secretName: plex-plexmox-com-tls
+      hosts:
+        - plex.plexmox.com
+
+  pvc:
+    enabled: true
+    mountPath: /config
+    storageClassName: longhorn
+    size: 50Gi
+
+  deploymentStrategy:
+    type: Recreate
+
+  probes:
+    initialDelaySeconds: 20
+
+  config:
+    PUID: "1000"
+    GUID: "1000"
+    TZ:  Europe/London
+    VERSION: latest
+
+  securityContext:
+    privileged: true
+
+  additionalPorts:
+    - name: dlna
+      containerPort: 1900
+      protocol: UDP
+    - name: bonjour
+      containerPort: 5353
+      protocol: UDP
+    - name: roku
+      containerPort: 8324
+      protocol: TCP
+    - name: gdm1
+      containerPort: 32410
+      protocol: UDP
+    - name: gdm2
+      containerPort: 32412
+      protocol: UDP
+    - name: gdm3
+      containerPort: 32413
+      protocol: UDP
+    - name: gdm4
+      containerPort: 32414
+      protocol: UDP
+    - name: dlnat
+      containerPort: 32469
+      protocol: TCP
+
+  volumes:
+    - name: media
+      hostPath:
+        path: /plex
+    - name: quicksync
+      hostPath:
+        path: /dev/dri
+
+  volumeMounts:
+    - mountPath: /dev/dri
+      name: quicksync
+
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: quicksync
+            operator: In
+            values:
+            - available

@@ -40,6 +40,8 @@ service:
   port: 80
   portName: http
 
+  additionalPorts: []
+
 probes:
   type: httpGet
 
@@ -106,6 +108,8 @@ secrets: ""
 volumes: []
 
 volumeMounts: []
+
+additionalPorts: []
 
 vpn:
   enabled: false
