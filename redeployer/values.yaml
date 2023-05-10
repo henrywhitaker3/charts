@@ -28,6 +28,7 @@ role:
     - extensions
   resources:
     - deployments
+    - pods
   resourceNames:
     - sonarr
     - radarr
