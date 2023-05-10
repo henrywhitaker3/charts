@@ -51,7 +51,6 @@ generic:
       kubernetes.io/tls-acme: "true"
       cert-manager.io/cluster-issuer: letsencrypt-prod
       nginx.ingress.kubernetes.io/configuration-snippet: |
-        proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Plex-Client-Identifier $http_x_plex_client_identifier;
         proxy_set_header X-Plex-Device $http_x_plex_device;
         proxy_set_header X-Plex-Device-Name $http_x_plex_device_name;
