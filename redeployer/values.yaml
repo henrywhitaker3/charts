@@ -72,7 +72,7 @@ jobs:
     command: kubectl -n media rollout restart deployment plex
     schedule: "0 4 * * *"
   - name: rebalanace-plex
-    schedule: "* * * * *"
+    schedule: "*/5 * * * *"
     command: |
       #!/bin/bash
 
