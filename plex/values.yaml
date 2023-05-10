@@ -63,6 +63,8 @@ generic:
         proxy_set_header X-Plex-Provides $http_x_plex_provides;
         proxy_set_header X-Plex-Device-Vendor $http_x_plex_device_vendor;
         proxy_set_header X-Plex-Model $http_x_plex_model;
+
+        real_ip_header proxy_protocol;
     hosts:
       - host: plex.plexmox.com
         paths:
