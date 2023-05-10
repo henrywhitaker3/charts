@@ -26,6 +26,7 @@ role:
   apiGroups:
     - apps
     - extensions
+    - ''
   resources:
     - deployments
     - pods
