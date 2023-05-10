@@ -13,29 +13,37 @@ generic:
     port: 32400
     additionalPorts:
       - name: dlna
-        containerPort: 1900
+        port: 1900
         protocol: UDP
+        targetPort: dlna
       - name: bonjour
-        containerPort: 5353
+        port: 5353
         protocol: UDP
+        targetPort: bonjour
       - name: roku
-        containerPort: 8324
+        port: 8324
         protocol: TCP
+        targetPort: roku
       - name: gdm1
-        containerPort: 32410
+        port: 32410
         protocol: UDP
+        targetPort: gdm1
       - name: gdm2
-        containerPort: 32412
+        port: 32412
         protocol: UDP
+        targetPort: gdm2
       - name: gdm3
-        containerPort: 32413
+        port: 32413
         protocol: UDP
+        targetPort: gdm3
       - name: gdm4
-        containerPort: 32414
+        port: 32414
         protocol: UDP
+        targetPort: gdm4
       - name: dlnat
-        containerPort: 32469
+        port: 32469
         protocol: TCP
+        targetPort: dlnat
 
   ingress:
     enabled: true
