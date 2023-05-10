@@ -26,10 +26,8 @@ role:
   apiGroups:
     - apps
     - extensions
-    - ''
   resources:
     - deployments
-    - pods
   resourceNames:
     - sonarr
     - radarr
