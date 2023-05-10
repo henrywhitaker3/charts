@@ -92,5 +92,5 @@ jobs:
         exit 0
       else
         echo Quicksync node unavailable
-        exit 1
+        exit 0
       fi
