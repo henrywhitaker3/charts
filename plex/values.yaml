@@ -92,7 +92,7 @@ generic:
 
   config:
     PUID: "1000"
-    GUID: "1000"
+    PGID: "1000"
     TZ:  Europe/London
     VERSION: latest
     ADVERTISE_IP: http://10.0.0.26:32400/
@@ -150,3 +150,5 @@ generic:
             operator: In
             values:
             - available
+
+loadBalancerIP: "10.0.0.26"

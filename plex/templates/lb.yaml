@@ -16,3 +16,4 @@ spec:
     {{- end }}
   selector:
     {{- include "plex.selectorLabels" . | nindent 4 }}
+  loadBalancerIP: {{ .Values.loadBalancerIP }}
