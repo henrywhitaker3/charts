@@ -44,5 +44,5 @@ generic:
   config:
     TZ:  Europe/London
     PUID: "1000"
-    GUID: "1000"
+    PGID: "1000"
     OOKLA_EULA_GDPR: "true"
