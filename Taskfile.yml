@@ -50,6 +50,9 @@ tasks:
       - task: build:std
         vars:
           DIR: cert-manager
+      - task: build:std
+        vars:
+          DIR: ingress-nginx
 
   build:generic:
     dir: ./{{ .DIR }}
