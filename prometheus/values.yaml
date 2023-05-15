@@ -80,7 +80,7 @@ kube-prometheus-stack:
     persistentVolume:
       enabled: true
       size: 20Gi
-      storageClass: longhorn
+      storageClass: smb
 
     prometheusSpec:
       retention: 7d
@@ -161,7 +161,7 @@ kube-prometheus-stack:
       storageSpec:
         volumeClaimTemplate:
           spec:
-            storageClassName: longhorn
+            storageClassName: smb
             accessModes: ["ReadWriteOnce"]
             resources:
               requests:
