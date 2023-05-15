@@ -53,6 +53,9 @@ tasks:
       - task: build:std
         vars:
           DIR: ingress-nginx
+      - task: build:std
+        vars:
+          DIR: longhorn
 
   build:generic:
     dir: ./{{ .DIR }}
