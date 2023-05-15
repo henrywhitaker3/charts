@@ -38,6 +38,7 @@ metadata:
           rewrite ^/web/(.*) /plex/web/$1? redirect;
       }
   name: plex-subdir
+  namespace: media
 spec:
   rules:
   - host: plexmox.com
