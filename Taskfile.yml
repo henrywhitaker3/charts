@@ -47,6 +47,9 @@ tasks:
       - task: build:std
         vars:
           DIR: metallb
+      - task: build:std
+        vars:
+          DIR: cert-manager
 
   build:generic:
     dir: ./{{ .DIR }}
