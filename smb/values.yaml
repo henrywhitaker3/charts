@@ -1,10 +1,10 @@
 name: smb
 
-host: ""
+host: //10.0.0.9/pvcs
 
 creds:
-  secretName: smbcreds
-  namespace: default
+  secretName: smb-creds
+  namespace: kube-system
 
 volumeBindingMode: Immediate
 

@@ -65,6 +65,9 @@ tasks:
       - task: build:std
         vars:
           DIR: 1password
+      - task: build:std
+        vars:
+          DIR: smb-provisioner
 
   build:generic:
     dir: ./{{ .DIR }}
