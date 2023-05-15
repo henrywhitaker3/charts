@@ -44,6 +44,9 @@ tasks:
       - task: build:std
         vars:
           DIR: prometheus
+      - task: build:std
+        vars:
+          DIR: metallb
 
   build:generic:
     dir: ./{{ .DIR }}
