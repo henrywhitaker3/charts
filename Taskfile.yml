@@ -56,6 +56,9 @@ tasks:
       - task: build:std
         vars:
           DIR: longhorn
+      - task: build:std
+        vars:
+          DIR: gitlab-runner
 
   build:generic:
     dir: ./{{ .DIR }}
