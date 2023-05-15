@@ -59,6 +59,9 @@ tasks:
       - task: build:std
         vars:
           DIR: gitlab-runner
+      - task: build:std
+        vars:
+          DIR: descheduler
 
   build:generic:
     dir: ./{{ .DIR }}
