@@ -62,6 +62,9 @@ tasks:
       - task: build:std
         vars:
           DIR: descheduler
+      - task: build:std
+        vars:
+          DIR: 1password
 
   build:generic:
     dir: ./{{ .DIR }}
