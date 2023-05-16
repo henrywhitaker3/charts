@@ -38,5 +38,9 @@ generic:
     accessModes:
     - ReadWriteOnce
 
+  config:
+    PUID: "1000"
+    PGID: "1000"
+
   deploymentStrategy:
     type: Recreate
