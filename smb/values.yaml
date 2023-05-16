@@ -15,5 +15,5 @@ mountOptions:
   - gid=1001
   - noperm
   - mfsymlinks
-  - cache=strict
+  - cache=none
   - noserverino
