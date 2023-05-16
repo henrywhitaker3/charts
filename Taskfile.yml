@@ -68,6 +68,9 @@ tasks:
       - task: build:std
         vars:
           DIR: smb-provisioner
+      - task: build:generic
+        vars:
+          DIR: uptime-kuma
 
   build:generic:
     dir: ./{{ .DIR }}
