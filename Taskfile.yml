@@ -25,9 +25,6 @@ tasks:
           DIR: tautulli
       - task: build:generic
         vars:
-          DIR: monitorr
-      - task: build:generic
-        vars:
           DIR: speedtest
       - task: build:generic
         vars:

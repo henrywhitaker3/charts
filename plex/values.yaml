@@ -11,6 +11,11 @@ generic:
 
   service:
     port: 32400
+
+    loadBalancer:
+      enabled: true
+      ip: "10.0.0.26"
+
     additionalPorts:
       - name: dlna
         port: 1900
@@ -151,4 +156,3 @@ generic:
             values:
             - available
 
-loadBalancerIP: "10.0.0.26"
