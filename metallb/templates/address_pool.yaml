@@ -1,15 +1,18 @@
+{{- range $range := .Values.addresses }}
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: lb-addresses
+  name: {{ $range.name }}
 spec:
   addresses:
-  - {{ .Values.addresses }}
+  - {{ $range.block }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
-  name: lb-advertisment
+  name: {{ $range.name }}
 spec:
   ipAddressPools:
-  - lb-addresses
+  - {{ $range.block }}
+---
+{{- end }}
