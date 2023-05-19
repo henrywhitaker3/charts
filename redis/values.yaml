@@ -13,6 +13,10 @@ generic:
     portName: redis
     port: 6379
 
+    loadBalancer:
+      enabled: true
+      ip: "10.0.0.35"
+
   ingress:
     enabled: false
 
