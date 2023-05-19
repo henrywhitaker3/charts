@@ -42,6 +42,10 @@ service:
 
   additionalPorts: []
 
+  loadBalancer:
+    enabled: false
+    ip: ""
+
 probes:
   type: httpGet
 
