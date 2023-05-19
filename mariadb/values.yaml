@@ -16,6 +16,10 @@ generic:
     portName: mysql
     port: 3306
 
+    loadBalancer:
+      enabled: true
+      ip: "10.0.0.36"
+
   secrets: vaults/Infra/items/mariadb
 
   ingress:

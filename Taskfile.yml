@@ -68,6 +68,9 @@ tasks:
       - task: build:generic
         vars:
           DIR: uptime-kuma
+      - task: build:generic
+        vars:
+          DIR: plex
 
   build:generic:
     dir: ./{{ .DIR }}
