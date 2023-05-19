@@ -13,6 +13,6 @@ metadata:
   name: {{ $range.name }}
 spec:
   ipAddressPools:
-  - {{ $range.block }}
+  - {{ $range.name }}
 ---
 {{- end }}
