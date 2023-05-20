@@ -73,21 +73,21 @@ jobs:
     command: |
       #!/bin/bash
 
-      quicksync_available=$(kubectl get node k8s-control-3 | tail -n 1 | tr -s ' ' | cut -d ' ' -f 2)
+      preferred_available=$(kubectl get node k8s-control-3 | tail -n 1 | tr -s ' ' | cut -d ' ' -f 2)
       current_node=$(kubectl -n media get pods -l app.kubernetes.io/name=plex -o=wide | tail -n 1 | tr -s ' ' | cut -d' ' -f7)
 
       if [ $current_node == "k8s-control-3" ]; then
-        echo Plex running on quicksync node
+        echo Plex running on preferred node
         exit 0
       else
-        echo Plex not running on quicksync node
+        echo Plex not running on preferred node
       fi
 
-      if [ $quicksync_available == "Ready" ]; then
-        echo Quicksync node available
+      if [ $preferred_available == "Ready" ]; then
+        echo Preferred node available
         kubectl -n media rollout restart deployment plex
         exit 0
       else
-        echo Quicksync node unavailable
+        echo Preferred node unavailable
         exit 0
       fi
