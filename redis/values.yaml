@@ -16,6 +16,7 @@ generic:
     loadBalancer:
       enabled: true
       ip: "10.0.0.35"
+      externalTrafficPolicy: Local
 
   ingress:
     enabled: false
