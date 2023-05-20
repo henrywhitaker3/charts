@@ -45,6 +45,7 @@ service:
   loadBalancer:
     enabled: false
     ip: ""
+    externalTrafficPolicy: Cluster
 
 probes:
   type: httpGet
