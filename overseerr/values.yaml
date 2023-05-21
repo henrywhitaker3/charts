@@ -12,6 +12,11 @@ generic:
   service:
     port: 5055
 
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+
   ingress:
     enabled: true
     annotations:
