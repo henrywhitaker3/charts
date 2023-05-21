@@ -12,6 +12,11 @@ generic:
   service:
     port: 80
 
+  resources:
+    requests:
+      cpu: 100m
+      memory: 200Mi
+
   ingress:
     enabled: true
     annotations:
