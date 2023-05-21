@@ -12,6 +12,11 @@ generic:
   service:
     port: 9696
 
+  resources:
+    requests:
+      cpu: 200m
+      memory: 200Mi
+
   ingress:
     enabled: true
     annotations:
