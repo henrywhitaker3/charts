@@ -71,6 +71,9 @@ tasks:
       - task: build:generic
         vars:
           DIR: plex
+      - task: build:std
+        vars:
+          DIR: argocd
 
   build:generic:
     dir: ./{{ .DIR }}
@@ -87,3 +90,7 @@ tasks:
     cmds:
       - helm dependency update
       - helm dependency build
+
+  update:argo:
+    cmds:
+      - helm upgrade --install -n argo -f argocd/values.yaml argo argocd/
