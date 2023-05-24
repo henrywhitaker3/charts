@@ -74,9 +74,6 @@ tasks:
       - task: build:std
         vars:
           DIR: argocd
-      - task: build:std
-        vars:
-          DIR: node-feature-discovery
 
   build:generic:
     dir: ./{{ .DIR }}

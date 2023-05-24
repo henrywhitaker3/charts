@@ -304,19 +304,6 @@ charts:
         prune: true
         selfHeal: true
 
-  - name: node-feature-discovery
-    project: cluster
-    namespace: misc
-    path: node-feature-discovery
-    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
-    targetRevision: HEAD
-    syncPolicy:
-      syncOptions:
-        - CreateNamespace=true
-      automated:
-        prune: true
-        selfHeal: true
-
   # - name: rancher
   #   project: cluster
   #   namespace: cattle-system
