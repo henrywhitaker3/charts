@@ -37,9 +37,12 @@ generic:
 
   pvc:
     enabled: true
-    mountPath: /app
+    mountPath: /app/config
     storageClassName: longhorn
-    size: 5Gi
+    size: 1Gi
+
+    server:
+      size: 1Gi
 
   deploymentStrategy:
     type: Recreate
@@ -70,12 +73,17 @@ generic:
     - name: quicksync
       hostPath:
         path: /dev/dri
+    - name: server
+      persistentVolumeClaim:
+        claimName: tdarr-server
 
   volumeMounts:
     - mountPath: /media
       name: media
     - mountPath: /dev/dri
       name: quicksync
+    - mountPath: /app/server
+      name: server
 
   affinity:
     nodeAffinity:
