@@ -71,9 +71,6 @@ tasks:
       - task: build:generic
         vars:
           DIR: plex
-      - task: build:generic
-        vars:
-          DIR: tdarr
       - task: build:std
         vars:
           DIR: argocd
