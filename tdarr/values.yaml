@@ -45,7 +45,7 @@ generic:
     type: Recreate
 
   probes:
-    initialDelaySeconds: 15
+    initialDelaySeconds: 60
 
   config:
     PUID: "1000"
