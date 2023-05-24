@@ -156,7 +156,6 @@ kube-prometheus-stack:
               - 'k8s-control-3.lab:9100'
               - 'k8s-worker-1.lab:9100'
               - 'k8s-worker-2.lab:9100'
-              - 'k8s-worker-3.lab:9100'
 
       storageSpec:
         volumeClaimTemplate:
