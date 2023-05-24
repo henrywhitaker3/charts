@@ -52,6 +52,11 @@ generic:
     PGID: "1000"
     TZ:  Europe/London
     internalNode: "true"
+    inContainer: "true"
+    nodeName: k3s node
+    serverIP: "0.0.0.0"
+    serverPort: "8266"
+    webUIPort: "8265"
 
   additionalPorts:
     - name: server
