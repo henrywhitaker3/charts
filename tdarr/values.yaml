@@ -75,7 +75,7 @@ generic:
         path: /dev/dri
     - name: server
       persistentVolumeClaim:
-        claimName: tdarr-server
+        claimName: tdarr-tdarr-server
 
   volumeMounts:
     - mountPath: /media

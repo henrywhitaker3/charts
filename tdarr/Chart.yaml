@@ -1,6 +1,6 @@
 apiVersion: v2
-name: sonarr
-description: sonarr manifests
+name: tdarr
+description: tdarr manifests
 
 # A chart can be either an 'application' or a 'library' chart.
 #
