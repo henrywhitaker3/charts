@@ -1,7 +1,7 @@
 minio:
   existingSecret: root-creds
 
-  ingress:
+  consoleIngress:
     enabled: true
 
     annotations:
