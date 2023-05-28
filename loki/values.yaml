@@ -20,3 +20,6 @@ loki:
   backend:
     persistence:
       storageClass: smb
+
+  gateway:
+    replicas: 3
