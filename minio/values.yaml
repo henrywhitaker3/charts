@@ -20,7 +20,9 @@ minio:
 
   resources:
     requests:
-      memory: 2Gi
+      memory: 1Gi
+
+  replicas: 3
 
   persistence:
     enabled: true
