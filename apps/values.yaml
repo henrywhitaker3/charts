@@ -255,7 +255,7 @@ charts:
   - name: kube-prometheus-stack
     project: apps
     namespace: monitoring
-    path: prometheus
+    path: kube-prometheus-stack
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
