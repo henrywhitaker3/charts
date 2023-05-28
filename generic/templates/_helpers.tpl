@@ -85,3 +85,8 @@ timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
 successThreshold: {{ .Values.probes.successThreshold }}
 failureThreshold: {{ .Values.probes.failureThreshold }}
 {{- end }}
+
+{{- define "generic.checksums" -}}
+checksum/configmap: {{ .Values.config | toString | sha256sum }}
+checksum/secrets: {{ .Values.secrets | toString | sha256sum }}
+{{- end }}
