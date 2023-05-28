@@ -1,0 +1,11 @@
+minio:
+  existingSecret: root-creds
+
+  persistence:
+    enabled: true
+
+    storageClass: smb
+
+    size: 150Gi
+
+rootCredsPath: minio-root-creds
