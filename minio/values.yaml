@@ -18,6 +18,10 @@ minio:
         hosts:
           - minio.plexmox.com
 
+  resources:
+    requests:
+      memory: 2Gi
+
   persistence:
     enabled: true
 
