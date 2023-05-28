@@ -26,4 +26,4 @@ loki:
 
   monitoring:
     selfMonitoring:
-      enabled: false
+      enabled: true
