@@ -24,6 +24,11 @@ minio:
 
   replicas: 3
 
+  securityContext:
+    fsGroup: 1002
+    runAsUser: 1002
+    runAsGroup: 100
+
   persistence:
     enabled: true
 
