@@ -1,0 +1,20 @@
+loki:
+  storage:
+    bucketNames:
+      chunks: loki-chunks
+      ruler: loki-ruler
+      admin: loki-admin
+
+    s3: null
+    insecure: true
+    endpoint: http://minio.minio.svc.cluster.local:9000
+
+  write:
+    persistence:
+      storageClass: smb
+  read:
+    persistence:
+      storageClass: smb
+  backend:
+    persistence:
+      storageClass: smb
