@@ -59,6 +59,15 @@ kube-prometheus-stack:
           revision: 1
           datasource: Prometheus
 
+    additionalDataSources:
+      - name: Loki
+        ordId: 1
+        access: proxy
+        type: loki
+        url: http://loki-gateway.loki.svc.cluster.local
+        jsonData:
+          maxLines: 250
+
   prometheus:
     ingress:
       enabled: true
