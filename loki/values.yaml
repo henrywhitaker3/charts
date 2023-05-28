@@ -23,3 +23,7 @@ loki:
 
   gateway:
     replicas: 3
+
+  monitoring:
+    selfMonitoring:
+      enabled: false
