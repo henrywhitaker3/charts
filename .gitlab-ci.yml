@@ -20,6 +20,7 @@ package:
 release:
   stage: release
   image: curlimages/curl
+  extends: .rules
   dependencies:
     - package
   script:
