@@ -1,0 +1,48 @@
+generic:
+  nameOverride: changedetection
+  fullnameOverride: changedetection
+
+  replicaCount: 1
+
+  image:
+    repository: ghcr.io/dgtlmoon/changedetection.io
+    pullPolicy: Always
+    tag: latest
+
+  service:
+    port: 5000
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/auth-url: https://auth.plexmox.com/api/verify
+      nginx.ingress.kubernetes.io/auth-signin: https://auth.plexmox.com
+    hosts:
+      - host: change.plexmox.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+    - secretName: change-plexmox-com-tls
+      hosts:
+        - change-plexmox.com
+
+  pvc:
+    enabled: true
+    mountPath: /datastore
+    storageClassName: longhorn
+    size: 1Gi
+
+  deploymentStrategy:
+    type: Recreate
+
+  probes:
+    initialDelaySeconds: 15
+
+  config:
+    PUID: "1000"
+    PGID: "1000"
+    TZ:  Europe/London
+    BASE_URL: https://change.plexmox.com

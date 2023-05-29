@@ -317,6 +317,19 @@ charts:
         prune: true
         selfHeal: true
 
+  - name: changedetection
+    project: apps
+    namespace: misc
+    path: changedetection
+    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
+    targetRevision: HEAD
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
+      automated:
+        prune: true
+        selfHeal: true
+
   # - name: rancher
   #   project: cluster
   #   namespace: cattle-system
