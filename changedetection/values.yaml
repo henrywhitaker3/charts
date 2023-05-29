@@ -27,7 +27,7 @@ generic:
     tls:
     - secretName: change-plexmox-com-tls
       hosts:
-        - change-plexmox.com
+        - change.plexmox.com
 
   pvc:
     enabled: true
