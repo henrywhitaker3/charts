@@ -9,6 +9,7 @@ image: henrywhitaker3/ansible-terraform
     - tags
 
 package:
+  stage: package
   extends: .rules
   script:
     - env
