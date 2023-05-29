@@ -1,4 +1,8 @@
 cert-manager:
   installCRDs: true
 
+  ingressShim:
+    defaultIssuerName: letsencrypt-prod
+    defaultIssuerKind: ClusterIssuer
+
 cloudflareApiToken: vaults/Infra/items/cloudflare-api-token
