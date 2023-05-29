@@ -316,36 +316,3 @@ charts:
       automated:
         prune: true
         selfHeal: true
-
-  - name: changedetection
-    project: apps
-    namespace: misc
-    path: changedetection
-    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
-    targetRevision: HEAD
-    syncPolicy:
-      syncOptions:
-        - CreateNamespace=true
-      automated:
-        prune: true
-        selfHeal: true
-
-  # - name: rancher
-  #   project: cluster
-  #   namespace: cattle-system
-  #   chart: rancher
-  #   repoUrl: https://releases.rancher.com/server-charts/stable
-  #   targetRevision: 2.7.3
-  #   values:
-  #     hostname: rancher.plexmox.com
-  #     ingress:
-  #       tls:
-  #         source: letsEncrypt
-  #     letsEncrypt:
-  #       email: no-reply@plexmox.com
-  #   syncPolicy:
-  #     syncOptions:
-  #       - CreateNamespace=true
-  #     automated:
-  #       prune: true
-  #       selfHeal: true
