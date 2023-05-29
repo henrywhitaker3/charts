@@ -5,7 +5,8 @@ stages:
 image: henrywhitaker3/ansible-terraform
 
 .rules:
-  only: tags
+  only:
+    - tags
 
 package:
   extends: .rules
