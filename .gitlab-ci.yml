@@ -1,0 +1,13 @@
+stages:
+  - package
+  - release
+
+image: henrywhitaker3/ansible-terraform
+
+.rules:
+  only: tags
+
+package:
+  extends: .rules
+  script:
+    - env
