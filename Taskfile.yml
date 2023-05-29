@@ -3,86 +3,16 @@ version: '3'
 output: prefixed
 
 tasks:
-  build:all:
-    deps:
-      - task: build:generic
-        vars:
-          DIR: sonarr
-      - task: build:generic
-        vars:
-          DIR: radarr
-      - task: build:generic
-        vars:
-          DIR: overseerr
-      - task: build:generic
-        vars:
-          DIR: organizr
-      - task: build:generic
-        vars:
-          DIR: prowlarr
-      - task: build:generic
-        vars:
-          DIR: tautulli
-      - task: build:generic
-        vars:
-          DIR: speedtest
-      - task: build:generic
-        vars:
-          DIR: transmission
-      - task: build:std
-        vars:
-          DIR: authelia
-      - task: build:generic
-        vars:
-          DIR: redis
-      - task: build:generic
-        vars:
-          DIR: mariadb
-      - task: build:std
-        vars:
-          DIR: prometheus
-      - task: build:std
-        vars:
-          DIR: metallb
-      - task: build:std
-        vars:
-          DIR: cert-manager
-      - task: build:std
-        vars:
-          DIR: ingress-nginx
-      - task: build:std
-        vars:
-          DIR: longhorn
-      - task: build:std
-        vars:
-          DIR: gitlab-runner
-      - task: build:std
-        vars:
-          DIR: descheduler
-      - task: build:std
-        vars:
-          DIR: 1password
-      - task: build:std
-        vars:
-          DIR: smb-provisioner
-      - task: build:generic
-        vars:
-          DIR: uptime-kuma
-      - task: build:generic
-        vars:
-          DIR: plex
-      - task: build:std
-        vars:
-          DIR: argocd
+  bump:generic:
+    cmds:
+      - ./scripts/bump.sh {{ .VERSION }}
 
-  build:generic:
+  update:version:
     dir: ./{{ .DIR }}
-    prefix: build:generic:{{ .DIR }}
     cmds:
       - |
         sed -i 's/version: "[0-9]*\.[0-9]*\.[0-9]*"/version: "{{ .VERSION }}"/g' Chart.yaml
-      - helm dependency update
-      - helm dependency build
+      - task: build:std
 
   build:std:
     dir: ./{{ .DIR }}
