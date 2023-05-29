@@ -17,9 +17,9 @@ spec:
               name: cloudflare-api-token
               key: apiKey
         selector:
-          dnsNames:
-            - '*.plexmox.com'
-            - '*.henrywhitaker.com'
+          dnsZones:
+            - 'plexmox.com'
+            - 'henrywhitaker.com'
       - http01:
           ingress:
             class: nginx
