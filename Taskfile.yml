@@ -24,3 +24,8 @@ tasks:
   update:argo:
     cmds:
       - helm upgrade --install -n argo -f argocd/values.yaml argo argocd/
+
+  release:
+    cmds:
+      - git tag v$(cat generic/Chart.yaml | grep -Eo "[0-9]+[.][0-9]+[.][0-9]+$")
+      - git push origin v$(cat generic/Chart.yaml | grep -Eo "[0-9]+[.][0-9]+[.][0-9]+$")
