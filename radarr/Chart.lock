@@ -1,6 +1,6 @@
 dependencies:
 - name: generic
   repository: https://gitlab.com/api/v4/projects/45740422/packages/helm/stable
-  version: 0.1.23
-digest: sha256:4f90e9e724872bae16ff6631d87b9477bc474c8d7b435d189ea087a0a27e4657
-generated: "2023-05-29T16:46:47.505429205+01:00"
+  version: 1.0.0
+digest: sha256:a7a13548e5f642b3b9143caa60159af94a0f0214c080af8d82d57f8d1fbb4cfc
+generated: "2023-05-30T20:58:16.57112742+01:00"
