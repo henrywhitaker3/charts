@@ -23,25 +23,6 @@ serviceAccount:
 
 role:
   name: restart-deployment
-  apiGroups:
-    - apps
-    - extensions
-  resources:
-    - deployments
-  resourceNames:
-    - sonarr
-    - radarr
-    - prowlarr
-    - transmission
-    - monitorr
-    - overseerr
-    - tautulli
-    - organizr
-    - plex
-  verbs:
-    - get
-    - list
-    - patch
 
 jobs:
   - name: sonarr
@@ -68,6 +49,9 @@ jobs:
   - name: plex
     command: kubectl -n media rollout restart deployment plex
     schedule: "0 4 * * *"
+  - name: kuma
+    command: kubectl -n monitoring rollout restart deployment uptime-kuma
+    schedule: "* * * * *"
   - name: rebalanace-plex
     schedule: "*/5 * * * *"
     command: |

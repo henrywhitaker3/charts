@@ -12,4 +12,17 @@ rules:
     verbs:
       - get
       - list
-
+  - apiGroups:
+      - apps
+      - extensions
+    resources:
+      - deployments
+    verbs:
+      - get
+      - list
+      - patch
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs:
+      - get
+      - list
