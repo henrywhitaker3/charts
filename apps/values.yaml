@@ -5,6 +5,19 @@ projects:
     description: Our apps running in the cluster
 
 charts:
+  - name: cilium
+    project: cluster
+    namespace: kube-system
+    path: cilium
+    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
+    targetRevision: HEAD
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
+      automated:
+        prune: true
+        selfHeal: true
+
   - name: metallb
     project: cluster
     namespace: metallb
