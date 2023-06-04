@@ -1,6 +1,6 @@
 dependencies:
-- name: metallb
-  repository: https://metallb.github.io/metallb
-  version: 0.13.9
-digest: sha256:c6115ce3ed2dac06e5b5b454e4fa6df2e25d9e15ba6f87a326a00abec373248b
-generated: "2023-05-15T17:20:26.459653428+01:00"
+- name: cilium
+  repository: https://helm.cilium.io
+  version: 1.14.0-snapshot.2
+digest: sha256:680108a58c0627e4f5dd956e7fee96d80ee2615af44c594d5984f5f6a96d0954
+generated: "2023-06-04T05:59:20.39090496+01:00"
