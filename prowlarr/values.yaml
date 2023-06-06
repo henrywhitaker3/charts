@@ -58,3 +58,8 @@ generic:
     PUID: "1000"
     PGID: "1000"
     TZ:  Europe/London
+
+  vpn:
+    enabled: true
+    secret:
+      path: vaults/Infra/items/prowlarr-tunnel
