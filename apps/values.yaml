@@ -18,6 +18,19 @@ charts:
   #       prune: true
   #       selfHeal: true
 
+  - name: coredns
+    project: cluster
+    namespace: kube-system
+    path: coredns
+    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
+    targetRevision: HEAD
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
+      automated:
+        prune: true
+        selfHeal: true
+
   - name: metallb
     project: cluster
     namespace: metallb
