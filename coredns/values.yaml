@@ -1,8 +1,0 @@
-coredns:
-  prometheus:
-    service:
-      enabled: true
-    monitor:
-      enabled: true
-
-  replicaCount: 3
