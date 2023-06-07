@@ -32,3 +32,8 @@ tasks:
     cmds:
       - git tag v{{ .VERSION }}
       - git push origin v{{ .VERSION }}
+
+  patch:pvc:
+    cmds:
+      - |
+        kubectl patch -n {{ .NAMESPACE }} pvc {{ .NAME }} --patch '{ "metadata": { "annotations": { "meta.helm.sh/release-namespace": "{{ .NAMESPACE }}", "meta.helm.sh/release-name": "{{ .NAME }}" }, "labels": { "app.kubernetes.io/managed-by": "Helm" } } }'
