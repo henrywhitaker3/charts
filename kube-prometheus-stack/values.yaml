@@ -56,7 +56,7 @@ kube-prometheus-stack:
       default:
         haproxy:
           gnetId: 12693
-          revision: 7
+          revision: 5
           datasource: Prometheus
         node_exporter:
           gnetId: 1860
