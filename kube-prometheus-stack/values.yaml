@@ -389,7 +389,7 @@ kube-prometheus-stack:
         - job_name: 'haproxy'
           static_configs:
             - targets:
-              - 'jump-k8s.lab:9101'
+              - 'jump-k8s.lab:8404'
               - 'k8s.lab:8404'
 
         - job_name: 'node_exporter'
