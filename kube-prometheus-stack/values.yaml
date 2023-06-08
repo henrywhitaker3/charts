@@ -8,6 +8,12 @@ kube-prometheus-stack:
   nodeExporter:
     enabled: false
 
+  kubeEtcd:
+    enabled: true
+
+    endpoints:
+      - 10.0.0.6
+
   grafana:
     enabled: true
 
