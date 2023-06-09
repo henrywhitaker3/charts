@@ -19,7 +19,7 @@ cilium:
         - icmp
         - http
       serviceMonitor:
-        enabled: true
+        enabled: false
     relay:
       enabled: true
       rollOutPods: true
@@ -55,9 +55,9 @@ cilium:
     prometheus:
       enabled: true
       serviceMonitor:
-        enabled: true
+        enabled: false
   prometheus:
     enabled: true
     serviceMonitor:
-      enabled: true
+      enabled: false
   rollOutCiliumPods: true
