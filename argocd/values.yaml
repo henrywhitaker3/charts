@@ -22,6 +22,10 @@ argo-cd:
           prometheus.io/port: 9192
 
   server:
+    service:
+      type: LoadBalancer
+      loadBalancerIP: "10.0.0.37"
+
     ingress:
       # -- Enable an ingress resource for the Argo CD server
       enabled: true
