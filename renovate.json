@@ -3,7 +3,7 @@
     "platform": "gitlab",
     "username": "renovate[bot]",
     "repositories": ["henrywhitaker3/charts"],
-    "gitAuthor": "renovate <henrywhitaker3+renovate@outlook.com",
+    "gitAuthor": "renovate <henrywhitaker3+renovate@outlook.com>",
     "semanticCommits": "enabled",
     "labels": ["renovatebot"],
     "semanticCommitScope": "images",
