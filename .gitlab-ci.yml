@@ -38,6 +38,7 @@ release:
 
 renovate:
   stage: renovate
+  image: ${CI_RENOVATE_IMAGE_FULL}
   variables:
     RENOVATE_EXTRA_FLAGS: henrywhitaker3/charts
   rules:
