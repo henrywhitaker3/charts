@@ -1,6 +1,11 @@
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate.gitlab-ci.yml'
+
 stages:
   - package
   - release
+  - renovate
 
 .rules:
   rules:
@@ -30,3 +35,11 @@ release:
         --user gitlab-ci-token:$CI_JOB_TOKEN \
         --form "chart=@${package}" \
         "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/api/stable/charts"
+
+renovate:
+  stage: renovate
+  variables:
+    RENOVATE_EXTRA_FLAGS: henrywhitaker3/charts
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push"'
