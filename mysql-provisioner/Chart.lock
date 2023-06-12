@@ -1,6 +1,6 @@
 dependencies:
 - name: mysql-provisioner
   repository: https://henrywhitaker3.github.io/mysql-provisioner
-  version: 0.1.0
-digest: sha256:4439ebd1e4eccf102d7dcca7ccca9f1ac77104052a77e63ba5999c17271ac284
-generated: "2023-06-12T14:15:40.742883261+01:00"
+  version: 0.1.7
+digest: sha256:b7c54d830d744b440dec32dcea6b2651c20467690e16d40402a47226b364f80d
+generated: "2023-06-12T14:11:30.400789487Z"

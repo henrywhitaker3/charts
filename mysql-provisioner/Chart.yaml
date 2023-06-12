@@ -26,4 +26,4 @@ appVersion: "1.16.0"
 dependencies:
   - name: mysql-provisioner
     repository: https://henrywhitaker3.github.io/mysql-provisioner
-    version: "0.1.0"
+    version: "0.1.7"
