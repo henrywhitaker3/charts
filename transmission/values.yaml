@@ -71,3 +71,8 @@ generic:
     enabled: true
     secret:
       path: vaults/Infra/items/transmission-tunnel
+
+  securityContext:
+    fsGroup: 1002
+    runAsUser: 1002
+    runAsGroup: 100
