@@ -329,3 +329,16 @@ charts:
       automated:
         prune: true
         selfHeal: true
+
+  - name: mysql-provisioner
+    project: apps
+    namespace: databases
+    path: mysql-provisioner
+    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
+    targetRevision: HEAD
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
+      automated:
+        prune: true
+        selfHeal: true
