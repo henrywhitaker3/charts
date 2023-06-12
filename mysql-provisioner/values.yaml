@@ -4,6 +4,6 @@ connections:
     port: 3306
     user: provisioner
     passwordSecretRef:
-      name: mariadb-provisioner-user
+      name: mariadb-k3s
       key: password
       vault: vaults/Infra/items/mariadb-provisioner-user
