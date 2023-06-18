@@ -83,6 +83,19 @@ charts:
         prune: true
         selfHeal: true
 
+  - name: chart-runner
+    project: apps
+    namespace: gitlab-runner
+    path: chart-runner
+    repoUrl: https://gitlab.com/henrywhitaker3/charts.git
+    targetRevision: HEAD
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
+      automated:
+        prune: true
+        selfHeal: true
+
   - name: descheduler
     project: cluster
     namespace: kube-system
