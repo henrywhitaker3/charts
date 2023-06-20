@@ -8,7 +8,7 @@ charts:
   - name: metrics-server
     project: cluster
     namespace: kube-system
-    path: metrics-server
+    path: charts/metrics-server
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -21,7 +21,7 @@ charts:
   - name: metallb
     project: cluster
     namespace: metallb
-    path: metallb
+    path: charts/metallb
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -34,7 +34,7 @@ charts:
   - name: ingress-nginx
     project: cluster
     namespace: ingress-nginx
-    path: ingress-nginx
+    path: charts/ingress-nginx
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -47,7 +47,7 @@ charts:
   - name: cert-manager
     project: cluster
     namespace: cert-manager
-    path: cert-manager
+    path: charts/cert-manager
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -60,7 +60,7 @@ charts:
   - name: longhorn
     project: cluster
     namespace: longhorn
-    path: longhorn
+    path: charts/longhorn
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -73,7 +73,7 @@ charts:
   - name: gitlab-runner
     project: apps
     namespace: gitlab-runner
-    path: gitlab-runner
+    path: charts/gitlab-runner
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -86,7 +86,7 @@ charts:
   - name: chart-runner
     project: apps
     namespace: gitlab-runner
-    path: chart-runner
+    path: charts/chart-runner
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -99,7 +99,7 @@ charts:
   - name: descheduler
     project: cluster
     namespace: kube-system
-    path: descheduler
+    path: charts/descheduler
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -112,7 +112,7 @@ charts:
   - name: connect
     project: cluster
     namespace: 1password
-    path: 1password
+    path: charts/1password
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -125,7 +125,7 @@ charts:
   - name: smb-provisioner
     project: cluster
     namespace: kube-system
-    path: smb-provisioner
+    path: charts/smb-provisioner
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -138,7 +138,7 @@ charts:
   - name: sonarr
     project: apps
     namespace: media
-    path: sonarr
+    path: charts/sonarr
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -151,7 +151,7 @@ charts:
   - name: radarr
     project: apps
     namespace: media
-    path: radarr
+    path: charts/radarr
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -164,7 +164,7 @@ charts:
   - name: overseerr
     project: apps
     namespace: media
-    path: overseerr
+    path: charts/overseerr
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -177,7 +177,7 @@ charts:
   - name: organizr
     project: apps
     namespace: media
-    path: organizr
+    path: charts/organizr
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -190,7 +190,7 @@ charts:
   - name: prowlarr
     project: apps
     namespace: media
-    path: prowlarr
+    path: charts/prowlarr
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -203,7 +203,7 @@ charts:
   - name: tautulli
     project: apps
     namespace: media
-    path: tautulli
+    path: charts/tautulli
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -216,7 +216,7 @@ charts:
   - name: speedtest
     project: apps
     namespace: misc
-    path: speedtest
+    path: charts/speedtest
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -229,7 +229,7 @@ charts:
   - name: transmission
     project: apps
     namespace: media
-    path: transmission
+    path: charts/transmission
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -242,7 +242,7 @@ charts:
   - name: redis
     project: apps
     namespace: databases
-    path: redis
+    path: charts/redis
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -255,7 +255,7 @@ charts:
   - name: mariadb
     project: apps
     namespace: databases
-    path: mariadb
+    path: charts/mariadb
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -268,7 +268,7 @@ charts:
   - name: authelia
     project: apps
     namespace: authelia
-    path: authelia
+    path: charts/authelia
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -281,7 +281,7 @@ charts:
   - name: kube-prometheus-stack
     project: apps
     namespace: monitoring
-    path: kube-prometheus-stack
+    path: charts/kube-prometheus-stack
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -294,7 +294,7 @@ charts:
   - name: plex
     project: apps
     namespace: media
-    path: plex
+    path: charts/plex
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -307,7 +307,7 @@ charts:
   - name: redeployer
     project: cluster
     namespace: media
-    path: redeployer
+    path: charts/redeployer
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -320,7 +320,7 @@ charts:
   - name: uptime-kuma
     project: apps
     namespace: monitoring
-    path: uptime-kuma
+    path: charts/uptime-kuma
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -333,7 +333,7 @@ charts:
   - name: minio
     project: apps
     namespace: minio
-    path: minio
+    path: charts/minio
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
@@ -346,7 +346,7 @@ charts:
   - name: mysql-provisioner
     project: apps
     namespace: databases
-    path: mysql-provisioner
+    path: charts/mysql-provisioner
     repoUrl: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
     syncPolicy:
