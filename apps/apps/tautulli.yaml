@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: tautulli
   namespace: argo
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: media
