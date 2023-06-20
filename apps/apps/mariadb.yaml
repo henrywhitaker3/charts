@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb
+  namespace: argo
+spec:
+  destination:
+    namespace: databases
+    server: https://kubernetes.default.svc
+  project: apps
+  source:
+    path: charts/mariadb
+    repoURL: https://gitlab.com/henrywhitaker3/charts.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
