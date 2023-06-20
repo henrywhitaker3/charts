@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: uptime-kume
+  name: uptime-kuma
   namespace: argo
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: apps
   source:
-    path: charts/uptime-kume
+    path: charts/uptime-kuma
     repoURL: https://gitlab.com/henrywhitaker3/charts.git
     targetRevision: HEAD
   syncPolicy:
