@@ -338,6 +338,11 @@ kube-prometheus-stack:
       storageClass: longhorn
 
     prometheusSpec:
+      # ruleSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+      probeSelectorNilUsesHelmValues: false
+
       retention: 7d
 
       additionalScrapeConfigs:
