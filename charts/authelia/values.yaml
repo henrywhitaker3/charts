@@ -48,6 +48,10 @@ authelia:
           - plexmox.com
           - "*.plexmox.com"
           policy: two_factor
+        - domain:
+          - henrywhitaker.com
+          - "*.henrywhitaker.com"
+          policy: two_factor
 
     session:
       redis:
