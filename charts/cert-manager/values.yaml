@@ -5,4 +5,9 @@ cert-manager:
     defaultIssuerName: letsencrypt-prod
     defaultIssuerKind: ClusterIssuer
 
+  prometheus:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
 cloudflareApiToken: vaults/Infra/items/cloudflare-api-token
