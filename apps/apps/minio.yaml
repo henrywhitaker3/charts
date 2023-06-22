@@ -12,7 +12,7 @@ spec:
   project: apps
   source:
     path: charts/minio
-    repoURL: https://gitlab.com/henrywhitaker3/charts.git
+    repoURL: https://gitlab.com/henrywhitaker3/argo.git
     targetRevision: HEAD
   syncPolicy:
     automated:
