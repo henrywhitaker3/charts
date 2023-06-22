@@ -10,5 +10,5 @@ metadata:
 stringData:
   project: apps
   type: git
-  url: https://gitlab.com/henrywhitaker3/charts.git
+  url: https://gitlab.com/henrywhitaker3/argo.git
 type: Opaque

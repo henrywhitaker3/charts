@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: apps
-    repoURL: https://gitlab.com/henrywhitaker3/charts.git
+    repoURL: https://gitlab.com/henrywhitaker3/argo.git
     targetRevision: HEAD
     directory:
       recurse: true
